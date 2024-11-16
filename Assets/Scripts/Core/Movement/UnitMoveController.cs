@@ -12,7 +12,7 @@ public class UnitMoveController : MonoBehaviour
     protected Vector2 velocity;
     protected Vector2 velocityRef;
     protected bool canMove;
-    protected bool grounded;
+    protected bool grounded = true;
     protected int gravityScale;
     protected float groundCheckTimer;
     protected float horizontalSpeed;
@@ -22,6 +22,10 @@ public class UnitMoveController : MonoBehaviour
     [HideInInspector] public UnitJump unitJump;
     [HideInInspector] public UnitAttackController unitAttackController;
     [HideInInspector] public UnitKnockback unitKnockback;
+
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.1f;
+    public LayerMask groundLayer;
 
     protected virtual void Awake()
     {
@@ -39,13 +43,14 @@ public class UnitMoveController : MonoBehaviour
         grounded = true;
         initialGroundedPosition = transform.position;
         rb2D.drag = 15f;
-        gravityScale = 12;
+        gravityScale = 1;
     }
 
     protected virtual void Update()
     {
         HandleTimers();
         //HandleAnimations();
+        CheckIfGrounded();
         HandleMovement();
     }
 
@@ -57,19 +62,24 @@ public class UnitMoveController : MonoBehaviour
         }
     }
 
-/*
-    private void HandleAnimations()
-    {
-        if (animator != null)
+    /*
+        private void HandleAnimations()
         {
-            animator.SetBool("Grounded", grounded);
-            animator.SetFloat("VelocityX", rb2D.velocity.x);
-            animator.SetFloat("VelocityY", rb2D.velocity.y);
-            animator.SetFloat("VelocityAll", rb2D.velocity.magnitude);
+            if (animator != null)
+            {
+                animator.SetBool("Grounded", grounded);
+                animator.SetFloat("VelocityX", rb2D.velocity.x);
+                animator.SetFloat("VelocityY", rb2D.velocity.y);
+                animator.SetFloat("VelocityAll", rb2D.velocity.magnitude);
+            }
         }
-    }
 
-    */
+        */
+
+    public void CheckIfGrounded()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
 
     private void HandleMovement()
     {
@@ -90,7 +100,14 @@ public class UnitMoveController : MonoBehaviour
             AdjustDragAndGravity();
         }
 
+        /*
         if (unitAttackController != null && !unitAttackController.CurrentlyAttacking() && !unitAttackController.IsStunned() && canMove)
+        {
+            AdjustDirection();
+        }
+        */
+
+        if (canMove)
         {
             AdjustDirection();
         }
@@ -98,7 +115,14 @@ public class UnitMoveController : MonoBehaviour
 
     public void Move(Vector2 directionalInput, float horizontalSpeed, float verticalSpeed)
     {
+        /*
         if (!canMove || unitAttackController.CurrentlyAttacking() || unitAttackController.IsStunned())
+        {
+            return;
+        }
+        */
+
+        if (!canMove)
         {
             return;
         }
@@ -114,17 +138,17 @@ public class UnitMoveController : MonoBehaviour
         if (rb2D.velocity.y > 2f)
         {
             rb2D.drag = 3f;
-            gravityScale = 12;
+            gravityScale = 1;
         }
         else if (rb2D.velocity.y <= 2f && rb2D.velocity.y >= -2f)
         {
             rb2D.drag = 3f;
-            gravityScale = 4;
+            gravityScale = 1;
         }
         else
         {
             rb2D.drag = 6f;
-            gravityScale = 12;
+            gravityScale = 1;
         }
         rb2D.gravityScale = gravityScale;
     }
@@ -184,6 +208,6 @@ public class UnitMoveController : MonoBehaviour
     public void SetJumpHeight(float jumpHeight)
     {
         this.jumpHeight = jumpHeight;
-        //unitJump.SetJumpHeight(jumpHeight); // Asumiendo que UnitJump tiene un método SetJumpHeight
+        unitJump.SetJumpHeight(jumpHeight);
     }
 }
