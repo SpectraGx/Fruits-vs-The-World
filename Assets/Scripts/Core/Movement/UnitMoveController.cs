@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class UnitMoveController : MonoBehaviour
 {
-    private Rigidbody2D rb2D;
-    private Animator animator;
-    private UnitShadow unitShadow;
-    private UnitAnimationLayers unitAnimationLayers;
-    private Vector3 initialGroundedPosition;
-    private Vector2 velocity;
-    private Vector2 velocityRef;
-    private bool canMove;
-    private bool grounded;
-    private int gravityScale;
-    private float groundCheckTimer;
+    protected Rigidbody2D rb2D;
+    protected Animator animator;
+    protected UnitShadow unitShadow;
+    protected UnitAnimationLayers unitAnimationLayers;
+    protected Vector3 initialGroundedPosition;
+    protected Vector2 velocity;
+    protected Vector2 velocityRef;
+    protected bool canMove;
+    protected bool grounded;
+    protected int gravityScale;
+    protected float groundCheckTimer;
+    protected float horizontalSpeed;
+    protected float verticalSpeed;
+    protected float jumpHeight;
 
-    [SerializeField] private UnitJump unitJump;
-    [SerializeField] private UnitAttackController unitAttackController; // Cambiar referencia a UnitAttackController
-    [SerializeField] private UnitKnockback unitKnockback;
+    [HideInInspector] public UnitJump unitJump;
+    [HideInInspector] public UnitAttackController unitAttackController;
+    [HideInInspector] public UnitKnockback unitKnockback;
 
     protected virtual void Awake()
     {
         unitAnimationLayers = GetComponent<UnitAnimationLayers>();
-        unitAttackController = GetComponent<UnitAttackController>(); // Cambiar referencia a UnitAttackController
+        unitAttackController = GetComponent<UnitAttackController>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         unitShadow = GetComponentInChildren<UnitShadow>();
@@ -42,7 +45,7 @@ public class UnitMoveController : MonoBehaviour
     protected virtual void Update()
     {
         HandleTimers();
-        HandleAnimations();
+        //HandleAnimations();
         HandleMovement();
     }
 
@@ -54,6 +57,7 @@ public class UnitMoveController : MonoBehaviour
         }
     }
 
+/*
     private void HandleAnimations()
     {
         if (animator != null)
@@ -64,6 +68,8 @@ public class UnitMoveController : MonoBehaviour
             animator.SetFloat("VelocityAll", rb2D.velocity.magnitude);
         }
     }
+
+    */
 
     private void HandleMovement()
     {
@@ -84,7 +90,7 @@ public class UnitMoveController : MonoBehaviour
             AdjustDragAndGravity();
         }
 
-        if (unitAttackController != null && !unitAttackController.CurrentlyAttacking() && !unitAttackController.IsStunned() && canMove) // Cambiar a UnitAttackController
+        if (unitAttackController != null && !unitAttackController.CurrentlyAttacking() && !unitAttackController.IsStunned() && canMove)
         {
             AdjustDirection();
         }
@@ -92,7 +98,7 @@ public class UnitMoveController : MonoBehaviour
 
     public void Move(Vector2 directionalInput, float horizontalSpeed, float verticalSpeed)
     {
-        if (!canMove || unitAttackController.CurrentlyAttacking() || unitAttackController.IsStunned()) // Cambiar a UnitAttackController
+        if (!canMove || unitAttackController.CurrentlyAttacking() || unitAttackController.IsStunned())
         {
             return;
         }
@@ -167,5 +173,17 @@ public class UnitMoveController : MonoBehaviour
     public bool IsGrounded()
     {
         return grounded;
+    }
+
+    public void SetSpeed(float horizontalSpeed, float verticalSpeed)
+    {
+        this.horizontalSpeed = horizontalSpeed;
+        this.verticalSpeed = verticalSpeed;
+    }
+
+    public void SetJumpHeight(float jumpHeight)
+    {
+        this.jumpHeight = jumpHeight;
+        //unitJump.SetJumpHeight(jumpHeight); // Asumiendo que UnitJump tiene un método SetJumpHeight
     }
 }

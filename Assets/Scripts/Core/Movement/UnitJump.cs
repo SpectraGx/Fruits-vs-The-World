@@ -9,8 +9,14 @@ public class UnitJump : MonoBehaviour
     private bool grounded;
     private int gravityScale;
     private Vector2 velocity;
+    private float jumpHeight;
 
-    public void Jump(Vector2 directionalInput, float horizontalSpeed, float jumpHeight)
+    private void Awake()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+    }
+
+    public void Jump(Vector2 directionalInput, float horizontalSpeed)
     {
         if (grounded)
         {
@@ -29,5 +35,10 @@ public class UnitJump : MonoBehaviour
         grounded = false;
         rb2D.gravityScale = gravityScale;
         rb2D.velocity = velocity;
+    }
+
+    public void SetJumpHeight(float height)
+    {
+        jumpHeight = height;
     }
 }

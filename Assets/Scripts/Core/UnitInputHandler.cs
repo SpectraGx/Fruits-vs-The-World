@@ -14,6 +14,8 @@ public class UnitInputHandler : MonoBehaviour
     private Vector2 moveInput;
     private float jumpInput;
 
+    private PlayerMove playerMove;
+
     private void Awake()
     {
         unitMoveController = GetComponent<UnitMoveController>();
@@ -22,20 +24,25 @@ public class UnitInputHandler : MonoBehaviour
         unitBlock = GetComponent<UnitBlock>();
         unitParry = GetComponent<UnitParry>();
         unitSpecialAttack = GetComponent<UnitSpecialAttack>();
+        playerMove = GetComponent<PlayerMove>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        unitMoveController.Move(moveInput, 5f, 5f); // Velocidades de ejemplo
+        //unitMoveController.Move(moveInput, 5f, 5f); // Velocidades de ejemplo
+        playerMove.Move(moveInput, 8f, 4f);
+        Debug.Log("Se presiono una tecla de movimiento");
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             jumpInput = context.ReadValue<float>();
-            unitJump.Jump(moveInput, 5f, 10f); // Velocidades de ejemplo
+            //unitJump.Jump(moveInput, 5f, 10f); // Velocidades de ejemplo
+            playerMove.Jump();
+            Debug.Log("Se presiono Space");
         }
     }
 
