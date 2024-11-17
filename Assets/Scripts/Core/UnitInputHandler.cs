@@ -12,7 +12,6 @@ public class UnitInputHandler : MonoBehaviour
     private UnitParry unitParry;
     private UnitSpecialAttack unitSpecialAttack;
     private Vector2 moveInput;
-    private float jumpInput;
 
     private PlayerMove playerMove;
 
@@ -27,22 +26,27 @@ public class UnitInputHandler : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
     }
 
+    private void Update()
+    {
+    }
+
+    private void FixedUpdate()
+    {
+        playerMove.Move(moveInput, 2f, 1f);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        //unitMoveController.Move(moveInput, 5f, 5f); // Velocidades de ejemplo
-        playerMove.Move(moveInput, 8f, 4f);
-        Debug.Log("Se presiono una tecla de movimiento");
+        Debug.Log("Se presionó una tecla de movimiento");
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            jumpInput = context.ReadValue<float>();
-            //unitJump.Jump(moveInput, 5f, 10f); // Velocidades de ejemplo
             playerMove.Jump();
-            Debug.Log("Se presiono Space");
+            Debug.Log("Se presionó Space");
         }
     }
 

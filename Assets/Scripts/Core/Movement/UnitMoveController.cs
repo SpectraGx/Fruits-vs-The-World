@@ -13,7 +13,7 @@ public class UnitMoveController : MonoBehaviour
     protected Vector2 velocityRef;
     protected bool canMove;
     protected bool grounded = true;
-    protected int gravityScale;
+    protected float gravityScale;
     protected float groundCheckTimer;
     protected float horizontalSpeed;
     protected float verticalSpeed;
@@ -43,13 +43,12 @@ public class UnitMoveController : MonoBehaviour
         grounded = true;
         initialGroundedPosition = transform.position;
         rb2D.drag = 15f;
-        gravityScale = 1;
+        rb2D.gravityScale = 0; // Gravedad desactivada por defecto
     }
 
     protected virtual void Update()
     {
         HandleTimers();
-        //HandleAnimations();
         CheckIfGrounded();
         HandleMovement();
     }
@@ -62,21 +61,7 @@ public class UnitMoveController : MonoBehaviour
         }
     }
 
-    /*
-        private void HandleAnimations()
-        {
-            if (animator != null)
-            {
-                animator.SetBool("Grounded", grounded);
-                animator.SetFloat("VelocityX", rb2D.velocity.x);
-                animator.SetFloat("VelocityY", rb2D.velocity.y);
-                animator.SetFloat("VelocityAll", rb2D.velocity.magnitude);
-            }
-        }
-
-        */
-
-    public void CheckIfGrounded()
+    private void CheckIfGrounded()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
@@ -100,13 +85,6 @@ public class UnitMoveController : MonoBehaviour
             AdjustDragAndGravity();
         }
 
-        /*
-        if (unitAttackController != null && !unitAttackController.CurrentlyAttacking() && !unitAttackController.IsStunned() && canMove)
-        {
-            AdjustDirection();
-        }
-        */
-
         if (canMove)
         {
             AdjustDirection();
@@ -115,20 +93,13 @@ public class UnitMoveController : MonoBehaviour
 
     public void Move(Vector2 directionalInput, float horizontalSpeed, float verticalSpeed)
     {
-        /*
-        if (!canMove || unitAttackController.CurrentlyAttacking() || unitAttackController.IsStunned())
-        {
-            return;
-        }
-        */
-
         if (!canMove)
         {
             return;
         }
 
-        float currentHorizontalSpeed = IsRunning() ? horizontalSpeed * 1.8f : horizontalSpeed;
-        float currentVerticalSpeed = IsRunning() ? verticalSpeed * 1.5f : verticalSpeed;
+        float currentHorizontalSpeed = horizontalSpeed;
+        float currentVerticalSpeed = verticalSpeed;
         velocity = new Vector2(currentHorizontalSpeed * directionalInput.x, currentVerticalSpeed * directionalInput.y);
         rb2D.velocity = velocity;
     }
@@ -138,17 +109,17 @@ public class UnitMoveController : MonoBehaviour
         if (rb2D.velocity.y > 2f)
         {
             rb2D.drag = 3f;
-            gravityScale = 1;
+            gravityScale = 0;
         }
         else if (rb2D.velocity.y <= 2f && rb2D.velocity.y >= -2f)
         {
             rb2D.drag = 3f;
-            gravityScale = 1;
+            gravityScale = 0;
         }
         else
         {
-            rb2D.drag = 6f;
-            gravityScale = 1;
+            rb2D.drag = 3f;
+            gravityScale = 0f;
         }
         rb2D.gravityScale = gravityScale;
     }
@@ -190,7 +161,6 @@ public class UnitMoveController : MonoBehaviour
 
     public bool IsRunning()
     {
-        // Implement logic to determine if the unit is running
         return false;
     }
 
