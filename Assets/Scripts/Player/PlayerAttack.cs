@@ -4,6 +4,7 @@ public class PlayerAttack : UnitAttackController
 {
     private PlayerAnimationController playerAnimationController;
     private PlayerCombo playerCombo;
+    private AttackHitbox attackHitbox;
 
 
     protected override void Awake()
@@ -11,6 +12,7 @@ public class PlayerAttack : UnitAttackController
         base.Awake();
         playerAnimationController = GetComponent<PlayerAnimationController>();
         playerCombo = GetComponent<PlayerCombo>();
+        attackHitbox = GetComponentInChildren<AttackHitbox>();  
     }
     protected override void Update()
     {
@@ -23,6 +25,7 @@ public class PlayerAttack : UnitAttackController
 
         playerCombo.ExecuteCombo();
         ExecuteAttack(normalAttack);
+        attackHitbox.Active();
     }
 
     public void OnAnimationComplete()
@@ -30,6 +33,7 @@ public class PlayerAttack : UnitAttackController
         if (playerCombo.GetComboStep() == 0)
         {
             playerCombo.ResetCombo();
+            attackHitbox.Desactive();
         }
     }
 
@@ -43,5 +47,12 @@ public class PlayerAttack : UnitAttackController
     {
         ExecuteAttack(specialAttack);
         playerAnimationController.SetIsSpecialAttack();
+        
+    }
+
+    public void ApplyDamage(EnemyStats enemyStats){
+        if (enemyStats != null){
+            enemyStats.TakeDamage(normalAttack);
+        }
     }
 }
