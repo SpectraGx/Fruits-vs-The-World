@@ -103,7 +103,7 @@ public class UnitAttackController : MonoBehaviour
         attacking = false;
 
         bool grounded = unitMoveController.IsGrounded();
-        unitKnockback.Knockback(transform.position, incomingAttack.GetKnockback(), incomingAttack.GetHitType(), grounded);
+        //unitKnockback.Knockback(transform.position, incomingAttack.GetKnockback(), incomingAttack.GetHitType(), grounded);
         unitAnimationLayers.SetHitLayer();
 
         if (unitStats.TakeDamage(incomingAttack))
@@ -129,7 +129,7 @@ public class UnitAttackController : MonoBehaviour
 
     public void ExecuteParry()
     {
-        GetComponent<UnitParry>().ExecuteParry();
+        //GetComponent<UnitParry>().ExecuteParry();
     }
 
     public bool CurrentlyAttacking()

@@ -12,7 +12,7 @@ public class UnitKnockback : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    public void Knockback(Vector3 attackerPosition, Vector2 knockback, byte hitType, bool grounded)
+    public void Knockback(Vector3 attackerPosition, Vector2 knockback, byte hitType)
     {
         float direction = (transform.position.x >= attackerPosition.x) ? 1 : -1;
         if (Mathf.Sign(transform.localScale.x) != (-direction))
@@ -20,14 +20,7 @@ public class UnitKnockback : MonoBehaviour
             FlipSprite();
         }
 
-        if (grounded)
-        {
-            ApplyGroundedKnockback(knockback, direction, hitType);
-        }
-        else
-        {
-            ApplyAirborneKnockback(knockback, direction);
-        }
+        ApplyGroundedKnockback(knockback, direction, hitType);
     }
 
     private void ApplyGroundedKnockback(Vector2 knockback, float direction, byte hitType)
@@ -37,12 +30,6 @@ public class UnitKnockback : MonoBehaviour
             knockback.y = 0;
         }
         velocity = new Vector2(direction * knockback.x, Mathf.Abs(knockback.y));
-        rb2D.velocity = velocity;
-    }
-
-    private void ApplyAirborneKnockback(Vector2 knockback, float direction)
-    {
-        velocity = new Vector2(direction * knockback.x, Mathf.Abs(knockback.y) * 0.9f);
         rb2D.velocity = velocity;
     }
 

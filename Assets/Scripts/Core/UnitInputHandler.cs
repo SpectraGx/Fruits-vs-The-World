@@ -97,10 +97,12 @@ public class UnitInputHandler : MonoBehaviour
 
     public void OnParry(InputAction.CallbackContext context)
     {
+        /*
         if (context.started)
         {
             unitParry.ExecuteParry();
         }
+        */
     }
 
     public void OnStopMove(InputAction.CallbackContext context)

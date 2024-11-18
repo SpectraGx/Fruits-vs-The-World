@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitParry : MonoBehaviour
 {
+    /*
     private bool canParry;
     private bool parrying;
 
@@ -30,4 +31,5 @@ public class UnitParry : MonoBehaviour
     {
         return parrying;
     }
+    */
 }
