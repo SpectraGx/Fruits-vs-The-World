@@ -1,18 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombo : UnitCombo
+public class PlayerCombo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerAnimationController playerAnimationController;
+    private int comboStep = 0;
+    private float comboTimer = 0.5f; // Tiempo para completar el combo
+    private float currentComboTimer;
+    private bool isComboActive = false;
+
+    private void Awake()
     {
-        
+        playerAnimationController = GetComponent<PlayerAnimationController>();
+        playerAnimationController.OnAnimationComplete += ResetCombo;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        playerAnimationController.OnAnimationComplete -= ResetCombo;
+    }
+
+    private void Update()
+    {
+        if (isComboActive)
+        {
+            currentComboTimer -= Time.deltaTime;
+            if (currentComboTimer <= 0)
+            {
+                ResetCombo();
+            }
+        }
+    }
+
+    public void ExecuteCombo()
+    {
+        currentComboTimer = comboTimer;
+        isComboActive = true;
+
+        comboStep++;
+        if (comboStep == 1)
+        {
+            playerAnimationController.SetAttack1();
+        }
+        else if (comboStep == 2)
+        {
+            playerAnimationController.SetAttack2();
+        }
+        else if (comboStep >= 3)
+        {
+            playerAnimationController.SetAttack3();
+        }
+    }
+
+    public void ResetCombo()
+    {
+        comboStep = 0;
+        isComboActive = false;
+    }
+
+    public int GetComboStep()
+    {
+        return comboStep;
     }
 }

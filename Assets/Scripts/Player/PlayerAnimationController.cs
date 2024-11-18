@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
@@ -9,23 +7,26 @@ public class PlayerAnimationController : MonoBehaviour
 
     private static readonly string Player_Idle = "player_idle";
     private static readonly string Player_Walk = "player_walk";
-    private static readonly string Player_Attack = "player_attack1";
+    private static readonly string Player_Attack1 = "player_attack1";
     private static readonly string Player_Attack2 = "player_attack2";
     private static readonly string Player_Attack3 = "player_attack3";
     private static readonly string Player_SpecialAttack = "player_specialAttack";
 
 
+    public delegate void AnimationCompleteHandler();
+    public event AnimationCompleteHandler OnAnimationComplete;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void ChangeAnimationState(string newstate)
+    public void ChangeAnimationState(string newState)
     {
-        if (currentState == newstate) return;
-        animator.Play(newstate);
-        currentState = newstate;
+        if (currentState == newState) return;
+
+        animator.Play(newState);
+        currentState = newState;
     }
 
     public void SetIsMoving(bool isMoving)
@@ -42,7 +43,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void SetAttack1()
     {
-        ChangeAnimationState(Player_Attack);
+        ChangeAnimationState(Player_Attack1);
     }
 
     public void SetAttack2()
@@ -60,7 +61,20 @@ public class PlayerAnimationController : MonoBehaviour
         ChangeAnimationState(Player_SpecialAttack);
     }
 
-    public void ResetToIdle(){
+    public void ResetToIdle()
+    {
         ChangeAnimationState(Player_Idle);
+    }
+
+
+    private void Update()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        // Verificar si la animacion es de ataque
+        bool isAttackAnimation = currentState == Player_Attack1 || currentState == Player_Attack2 || currentState == Player_Attack3;
+        if (isAttackAnimation && stateInfo.normalizedTime >= 1.0f)
+        {
+            OnAnimationComplete?.Invoke(); ResetToIdle();
+        }
     }
 }
