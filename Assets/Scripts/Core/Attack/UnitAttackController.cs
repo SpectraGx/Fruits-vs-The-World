@@ -8,7 +8,7 @@ public class UnitAttackController : MonoBehaviour
     private UnitMoveController unitMoveController;
     private UnitKnockback unitKnockback;
     private UnitAnimationLayers unitAnimationLayers;
-    public UnitStats unitStats; 
+    public UnitStats unitStats;
     private List<Collider2D> hitsRecorded;
 
     public AttackData normalAttack;
@@ -25,7 +25,7 @@ public class UnitAttackController : MonoBehaviour
         unitMoveController = GetComponent<UnitMoveController>();
         unitKnockback = GetComponent<UnitKnockback>();
         unitAnimationLayers = GetComponent<UnitAnimationLayers>();
-        unitStats = GetComponent<UnitStats>(); 
+        unitStats = GetComponent<UnitStats>();
         hitsRecorded = new List<Collider2D>();
     }
 
@@ -42,7 +42,7 @@ public class UnitAttackController : MonoBehaviour
 
     public void ExecuteAttack(AttackData attack)
     {
-        if (attacking || unitStats.Stunned()) return; 
+        if (attacking || unitStats.Stunned()) return;
         attackToAnimate = attack;
         attacking = true;
         hitsRecorded.Clear();
@@ -65,7 +65,11 @@ public class UnitAttackController : MonoBehaviour
 
     private void CollectHits()
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(1, 1), 0f);
+        Vector2 size = new Vector2(1.5f, 1.0f);
+        Vector2 offset = new Vector2(0.5f, 0);
+        Vector2 position = transform.position + (Vector3)offset;
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(position, size, 0f);
         foreach (Collider2D hit in hits)
         {
             if (hit.GetComponentInParent<UnitAttackController>() != null && hit.GetComponentInParent<UnitAttackController>() != this)
@@ -77,6 +81,7 @@ public class UnitAttackController : MonoBehaviour
             }
         }
     }
+
 
     private void ConsiderHits()
     {
@@ -93,13 +98,13 @@ public class UnitAttackController : MonoBehaviour
 
             if (!attackComponent.unitStats.Stunned() || attackToAnimate == normalAttack)
             {
-                attackComponent.unitStats.Stun(attackToAnimate.stunDuration); 
+                attackComponent.unitStats.Stun(attackToAnimate.stunDuration);
             }
 
             comboHits++;
             if (comboHits >= maxComboHits)
             {
-                attackComponent.unitKnockback.Knockback(transform.position, attackToAnimate.knockback, 0); 
+                attackComponent.unitKnockback.Knockback(transform.position, attackToAnimate.knockback, 0);
                 comboHits = 0;
             }
         }
@@ -107,7 +112,7 @@ public class UnitAttackController : MonoBehaviour
 
     public void TakeHit(AttackData incomingAttack)
     {
-        if (unitStats.Stunned()) return; 
+        if (unitStats.Stunned()) return;
         attacking = false;
 
         unitKnockback.Knockback(transform.position, incomingAttack.knockback, 0);
@@ -115,7 +120,7 @@ public class UnitAttackController : MonoBehaviour
 
         if (unitStats.TakeDamage(incomingAttack))
         {
-            unitStats.Stun(incomingAttack.stunDuration); 
+            unitStats.Stun(incomingAttack.stunDuration);
         }
     }
 
@@ -145,4 +150,18 @@ public class UnitAttackController : MonoBehaviour
     {
         return attacking;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (attacking)
+        {
+            Vector2 size = new Vector2(1.5f, 1.0f);
+            Vector2 offset = new Vector2(0.5f, 0);
+            Vector2 position = transform.position + (Vector3)offset;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(position, size);
+        }
+    }
+
 }

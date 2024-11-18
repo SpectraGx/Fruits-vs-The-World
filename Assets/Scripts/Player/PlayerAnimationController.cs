@@ -12,13 +12,15 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly string Player_Attack3 = "player_attack3";
     private static readonly string Player_SpecialAttack = "player_specialAttack";
 
-
     public delegate void AnimationCompleteHandler();
     public event AnimationCompleteHandler OnAnimationComplete;
+
+    private UnitAttackController unitAttackController;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        unitAttackController = GetComponent<UnitAttackController>();
     }
 
     public void ChangeAnimationState(string newState)
@@ -72,9 +74,25 @@ public class PlayerAnimationController : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         // Verificar si la animacion es de ataque
         bool isAttackAnimation = currentState == Player_Attack1 || currentState == Player_Attack2 || currentState == Player_Attack3;
+        /*
         if (isAttackAnimation && stateInfo.normalizedTime >= 1.0f)
         {
             OnAnimationComplete?.Invoke(); ResetToIdle();
+        }
+        */
+
+        if (isAttackAnimation)
+        {
+            if (stateInfo.normalizedTime >= 0.5f && stateInfo.normalizedTime < 0.5f)
+            {
+                unitAttackController.OnAttackHitboxActive();
+            }
+
+            if (stateInfo.normalizedTime >= 1f)
+            {
+                OnAnimationComplete?.Invoke();
+                ResetToIdle();
+            }
         }
     }
 }
