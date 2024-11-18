@@ -11,7 +11,7 @@ public class UnitSpecialAttack : MonoBehaviour
     {
         if (specialCharge < maxSpecialCharge)
         {
-            specialCharge += Time.deltaTime * 10f; // Tasa de carga del ataque especial
+            specialCharge += Time.deltaTime * 10f; 
         }
     }
 
@@ -19,7 +19,6 @@ public class UnitSpecialAttack : MonoBehaviour
     {
         if (specialCharge >= maxSpecialCharge)
         {
-            // Lógica para ejecutar el ataque especial
             specialCharge = 0;
         }
     }

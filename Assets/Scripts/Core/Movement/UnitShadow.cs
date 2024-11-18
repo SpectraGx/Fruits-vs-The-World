@@ -11,16 +11,12 @@ public class UnitShadow : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    /// <summary>
-    /// Turn on the shadow.
-    /// </summary>
+
     public void TurnOnShadow()
     {
         sprite.enabled = true;
     }
-    /// <summary>
-    /// Turn off the shadow.
-    /// </summary>
+
     public void TurnOffShadow()
     {
         sprite.enabled = false;

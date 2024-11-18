@@ -14,6 +14,7 @@ public class UnitInputHandler : MonoBehaviour
     private Vector2 moveInput;
 
     private PlayerMove playerMove;
+    private PlayerAttack playerAttack;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class UnitInputHandler : MonoBehaviour
         unitParry = GetComponent<UnitParry>();
         unitSpecialAttack = GetComponent<UnitSpecialAttack>();
         playerMove = GetComponent<PlayerMove>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Update()
@@ -55,23 +57,8 @@ public class UnitInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            unitAttackController.ExecuteAttack(unitAttackController.lightAttack);
-        }
-    }
-
-    public void OnHeavyAttack(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            unitAttackController.ExecuteAttack(unitAttackController.heavyAttack);
-        }
-    }
-
-    public void OnAerialAttack(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            unitAttackController.ExecuteAttack(unitAttackController.aerialAttack);
+            //unitAttackController.ExecuteAttack(unitAttackController.normalAttack);
+            playerAttack.ExecuteNormalAttack();
         }
     }
 
@@ -79,7 +66,8 @@ public class UnitInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            unitSpecialAttack.ExecuteSpecialAttack();
+            //unitSpecialAttack.ExecuteSpecialAttack();
+            playerAttack.ExecuteSpecialAttack();
         }
     }
 
@@ -93,16 +81,6 @@ public class UnitInputHandler : MonoBehaviour
         {
             unitBlock.SetBlocking(false);
         }
-    }
-
-    public void OnParry(InputAction.CallbackContext context)
-    {
-        /*
-        if (context.started)
-        {
-            unitParry.ExecuteParry();
-        }
-        */
     }
 
     public void OnStopMove(InputAction.CallbackContext context)

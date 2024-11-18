@@ -43,7 +43,7 @@ public class UnitMoveController : MonoBehaviour
         grounded = true;
         initialGroundedPosition = transform.position;
         rb2D.drag = 15f;
-        rb2D.gravityScale = 0; // Gravedad desactivada por defecto
+        rb2D.gravityScale = 0; 
     }
 
     protected virtual void Update()
@@ -156,7 +156,6 @@ public class UnitMoveController : MonoBehaviour
 
     public void SetMoveSmoothing(bool tOrF)
     {
-        // Logic for move smoothing can be handled here
     }
 
     public bool IsRunning()

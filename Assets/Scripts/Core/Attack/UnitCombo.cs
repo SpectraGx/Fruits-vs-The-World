@@ -30,7 +30,7 @@ public class UnitCombo : MonoBehaviour
     {
         comboCount++;
         comboResetTimer = 2f;
-        if (comboCount >= 3) // Número de golpes en el combo para desencadenar el stun
+        if (comboCount >= 3) 
         {
             ApplyStunToAllEnemiesInRange();
             comboCount = 0;
@@ -39,13 +39,13 @@ public class UnitCombo : MonoBehaviour
 
     private void ApplyStunToAllEnemiesInRange()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 2f); // Radio de alcance del combo
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 2f); 
         foreach (Collider2D enemy in enemies)
         {
             UnitAttackController enemyController = enemy.GetComponent<UnitAttackController>();
             if (enemyController != null && !enemyController.unitStats.Stunned())
             {
-                enemyController.unitStats.Stun(); // Usar UnitStats para aplicar el aturdimiento
+                //enemyController.unitStats.Stun(); 
             }
         }
     }

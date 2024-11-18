@@ -560,7 +560,10 @@ GameObject:
   - component: {fileID: 287627547}
   - component: {fileID: 287627539}
   - component: {fileID: 287627546}
-  - component: {fileID: 287627545}
+  - component: {fileID: 287627552}
+  - component: {fileID: 287627551}
+  - component: {fileID: 287627550}
+  - component: {fileID: 287627549}
   - component: {fileID: 287627544}
   - component: {fileID: 287627543}
   - component: {fileID: 287627542}
@@ -719,7 +722,19 @@ MonoBehaviour:
     m_ActionId: a57ff61e-7825-487a-ae65-c022bf589008
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 287627543}
+        m_TargetAssemblyTypeName: UnitInputHandler, Assembly-CSharp
+        m_MethodName: OnLightAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2b963ec7-e613-4068-8d6b-9ed2cd064b2b
     m_ActionName: Player/NormalAttack[/Keyboard/j]
   - m_PersistentCalls:
@@ -767,18 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d084851cf5d5ac4dba0ca00eef6b981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &287627545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287627538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab2682fe8772c941b22fdf87de510ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &287627546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f486250e6eb6d0419aeeeda3783bfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitJump: {fileID: 287627545}
+  unitJump: {fileID: 0}
   unitAttackController: {fileID: 0}
   unitKnockback: {fileID: 0}
   groundCheck: {fileID: 155302738}
@@ -871,6 +874,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &287627549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287627538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f88105e6cbbc184fb3be302e9f84613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meterDelay: 3
+  statMeterGain: 2
+  maxMeter: 100
+  maxHealth: 100
+  maxStun: 20
+  isPlayer: 1
+--- !u!114 &287627550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287627538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d0e61249930d84a880ac6c580fbf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &287627551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287627538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd174edc17b81aa438b63efda0b5e586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &287627552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287627538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15da88b1cc4f2d74aa7e4f94622cf8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 0}
+  normalAttack: {fileID: 0}
+  specialAttack: {fileID: 0}
 --- !u!1 &1177686531
 GameObject:
   m_ObjectHideFlags: 0

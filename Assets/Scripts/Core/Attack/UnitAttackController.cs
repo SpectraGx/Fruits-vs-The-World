@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,28 +8,28 @@ public class UnitAttackController : MonoBehaviour
     private UnitMoveController unitMoveController;
     private UnitKnockback unitKnockback;
     private UnitAnimationLayers unitAnimationLayers;
-    public UnitStats unitStats; // Nueva referencia a UnitStats
+    public UnitStats unitStats; 
     private List<Collider2D> hitsRecorded;
 
-    public Attack lightAttack;
-    public Attack heavyAttack;
-    public Attack aerialAttack;
-    public Attack specialAttack;
+    public AttackData normalAttack;
+    public AttackData specialAttack;
 
-    private Attack attackToAnimate;
+    private AttackData attackToAnimate;
     private bool attacking;
+    private int comboHits;
+    private int maxComboHits = 3; // Num max de golpes antes de aplicar knockback
 
-    private void Awake()
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         unitMoveController = GetComponent<UnitMoveController>();
         unitKnockback = GetComponent<UnitKnockback>();
         unitAnimationLayers = GetComponent<UnitAnimationLayers>();
-        unitStats = GetComponent<UnitStats>(); // Asignar referencia a UnitStats
+        unitStats = GetComponent<UnitStats>(); 
         hitsRecorded = new List<Collider2D>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         HandleAnimations();
     }
@@ -36,16 +37,16 @@ public class UnitAttackController : MonoBehaviour
     private void HandleAnimations()
     {
         animator.SetBool("Attacking", attacking);
-        animator.SetBool("Stunned", unitStats.Stunned()); // Usar UnitStats para verificar el estado de aturdimiento
+        animator.SetBool("Stunned", unitStats.Stunned()); 
     }
 
-    public void ExecuteAttack(Attack attack)
+    public void ExecuteAttack(AttackData attack)
     {
-        if (attacking || unitStats.Stunned()) return; // Usar UnitStats para verificar el estado de aturdimiento
+        if (attacking || unitStats.Stunned()) return; 
         attackToAnimate = attack;
         attacking = true;
         hitsRecorded.Clear();
-        animator.SetTrigger(attack.GetAnimationID().ToString());
+        //animator.Play(attack.animationClip.name);
     }
 
     public void OnAttackHitboxActive()
@@ -58,12 +59,13 @@ public class UnitAttackController : MonoBehaviour
     {
         attacking = false;
         attackToAnimate = null;
+        comboHits = 0;
         unitAnimationLayers.SetMovementLayer();
     }
 
     private void CollectHits()
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, attackToAnimate.GetHitboxDimensions(), 0f);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(1, 1), 0f);
         foreach (Collider2D hit in hits)
         {
             if (hit.GetComponentInParent<UnitAttackController>() != null && hit.GetComponentInParent<UnitAttackController>() != this)
@@ -84,37 +86,49 @@ public class UnitAttackController : MonoBehaviour
 
             if (attackComponent.IsBlocking())
             {
-                attackComponent.ExecuteParry();
-                return;
+                continue;
             }
 
             attackComponent.TakeHit(attackToAnimate);
 
-            if (!attackComponent.unitStats.Stunned())
+            if (!attackComponent.unitStats.Stunned() || attackToAnimate == normalAttack)
             {
-                attackComponent.unitStats.Stun(); // Usar UnitStats para aplicar el aturdimiento
+                attackComponent.unitStats.Stun(attackToAnimate.stunDuration); 
+            }
+
+            comboHits++;
+            if (comboHits >= maxComboHits)
+            {
+                attackComponent.unitKnockback.Knockback(transform.position, attackToAnimate.knockback, 0); 
+                comboHits = 0;
             }
         }
     }
 
-    public void TakeHit(Attack incomingAttack)
+    public void TakeHit(AttackData incomingAttack)
     {
-        if (unitStats.Stunned()) return; // Usar UnitStats para verificar el estado de aturdimiento
+        if (unitStats.Stunned()) return; 
         attacking = false;
 
-        bool grounded = unitMoveController.IsGrounded();
-        //unitKnockback.Knockback(transform.position, incomingAttack.GetKnockback(), incomingAttack.GetHitType(), grounded);
+        unitKnockback.Knockback(transform.position, incomingAttack.knockback, 0);
         unitAnimationLayers.SetHitLayer();
 
         if (unitStats.TakeDamage(incomingAttack))
         {
-            unitStats.Stun(); // Usar UnitStats para aplicar el aturdimiento
+            unitStats.Stun(incomingAttack.stunDuration); 
         }
     }
 
-    public void Stun()
+    public void Stun(float duration)
     {
         animator.SetTrigger("Stunned");
+        StartCoroutine(StunCoroutine(duration));
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        EndStun();
     }
 
     public void EndStun()
@@ -125,11 +139,6 @@ public class UnitAttackController : MonoBehaviour
     public bool IsBlocking()
     {
         return GetComponent<UnitBlock>().IsBlocking();
-    }
-
-    public void ExecuteParry()
-    {
-        //GetComponent<UnitParry>().ExecuteParry();
     }
 
     public bool CurrentlyAttacking()

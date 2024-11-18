@@ -19,8 +19,8 @@ public class PlayerMove : UnitMoveController
     {
         base.Start();
         CanMove(true);
-        SetSpeed(1, 0.5f); // Configure the player's speed
-        SetJumpHeight(10); // Configure the player's jump height
+        SetSpeed(1, 0.5f); 
+        SetJumpHeight(10); 
     }
 
     protected override void Update()
@@ -28,7 +28,6 @@ public class PlayerMove : UnitMoveController
         base.Update();
         bool isMoving = rb2D.velocity.magnitude>0.1f;
         playerAnimationController.SetIsMoving(isMoving);
-        // Additional player-specific update logic can go here
     }
     
     public void Jump()

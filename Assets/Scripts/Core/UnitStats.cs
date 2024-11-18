@@ -46,9 +46,9 @@ public class UnitStats : MonoBehaviour
         }
     }
 
-    public virtual bool TakeDamage(Attack incomingAttack)
+    public virtual bool TakeDamage(AttackData incomingAttack)
     {
-        int totalDamage = incomingAttack.Damage();
+        int totalDamage = incomingAttack.damage;
         currentHealth -= totalDamage;
 
         if (currentHealth <= 0)
@@ -63,30 +63,15 @@ public class UnitStats : MonoBehaviour
             currentMeter = maxMeter;
         }
 
-        float immediateStunMultiplier = 1.0f;
-        if (!GetComponent<UnitMoveController>().IsGrounded())
-        {
-            if (incomingAttack.AttributeKnockback() || incomingAttack.AttributeKnockbackFar() ||
-                incomingAttack.AttributePopUp())
-            {
-                immediateStunMultiplier += 0.3f;
-            }
-        }
-
-        if (incomingAttack.AttributeHeavyStun())
-        {
-            immediateStunMultiplier += 0.3f;
-        }
-
-        currentStun += (int)(totalDamage * immediateStunMultiplier);
+        currentStun += (int)incomingAttack.stunDuration;
 
         return currentStun >= maxStun;
     }
 
-    public void Stun()
+    public void Stun(float duration)
     {
         currentStun = maxStun;
-        unitAttackController.Stun();
+        unitAttackController.Stun(duration);
     }
 
     public void EndStun()

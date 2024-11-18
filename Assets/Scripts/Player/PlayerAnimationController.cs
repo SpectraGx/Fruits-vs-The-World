@@ -9,6 +9,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     private static readonly string Player_Idle = "player_idle";
     private static readonly string Player_Walk = "player_walk";
+    private static readonly string Player_Attack = "player_attack1";
+
 
     private void Awake()
     {
@@ -32,5 +34,10 @@ public class PlayerAnimationController : MonoBehaviour
         {
             ChangeAnimationState(Player_Idle);
         }
+    }
+
+    public void SetIsAttacking()
+    {
+        ChangeAnimationState(Player_Attack);
     }
 }
