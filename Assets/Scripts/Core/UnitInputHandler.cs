@@ -58,9 +58,10 @@ public class UnitInputHandler : MonoBehaviour
         if (context.started)
         {
             //unitAttackController.ExecuteAttack(unitAttackController.normalAttack);
-            playerAttack.ExecuteNormalAttack();
+            playerAttack.ExecuteComboAttack();
         }
     }
+
 
     public void OnSpecialAttack(InputAction.CallbackContext context)
     {

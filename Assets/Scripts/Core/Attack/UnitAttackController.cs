@@ -36,8 +36,8 @@ public class UnitAttackController : MonoBehaviour
 
     private void HandleAnimations()
     {
-        animator.SetBool("Attacking", attacking);
-        animator.SetBool("Stunned", unitStats.Stunned()); 
+        //animator.SetBool("Attacking", attacking);
+        //animator.SetBool("Stunned", unitStats.Stunned()); 
     }
 
     public void ExecuteAttack(AttackData attack)
