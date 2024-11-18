@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.7411765, g: 0.7372549, b: 0.7411765, a: 1}
   m_FlipX: 0
@@ -718,6 +718,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a57ff61e-7825-487a-ae65-c022bf589008
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b963ec7-e613-4068-8d6b-9ed2cd064b2b
+    m_ActionName: Player/NormalAttack[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e3e90c4-eeed-46c9-b7e4-91e5e851f7e8
+    m_ActionName: Player/StrongAttack[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 62c4c55a-6e31-425d-83fd-e95fd4132d45
+    m_ActionName: Player/SpecialAttack[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31eb3f14-c377-4e09-86e2-0273fb0b4ce3
+    m_ActionName: Player/Block[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 72d2809e-2595-4e7b-8a66-eb885584c891
+    m_ActionName: Player/PickUp[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -759,6 +779,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab2682fe8772c941b22fdf87de510ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundCheck: {fileID: 155302738}
+  groundCheckDistance: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &287627546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +800,7 @@ MonoBehaviour:
   unitAttackController: {fileID: 0}
   unitKnockback: {fileID: 0}
   groundCheck: {fileID: 155302738}
-  groundCheckRadius: 0.1
+  groundCheckRadius: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

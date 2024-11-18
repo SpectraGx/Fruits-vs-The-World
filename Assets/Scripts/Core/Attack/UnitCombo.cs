@@ -43,10 +43,9 @@ public class UnitCombo : MonoBehaviour
         foreach (Collider2D enemy in enemies)
         {
             UnitAttackController enemyController = enemy.GetComponent<UnitAttackController>();
-            if (enemyController != null && !enemyController.IsStunned())
+            if (enemyController != null && !enemyController.unitStats.Stunned())
             {
-                enemyController.TakeHit(unitAttackController.lightAttack); // Ejemplo de ataque ligero usado para stun
-                enemyController.Stun();
+                enemyController.unitStats.Stun(); // Usar UnitStats para aplicar el aturdimiento
             }
         }
     }

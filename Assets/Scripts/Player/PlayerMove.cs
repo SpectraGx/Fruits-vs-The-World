@@ -20,7 +20,7 @@ public class PlayerMove : UnitMoveController
         base.Start();
         CanMove(true);
         SetSpeed(1, 0.5f); // Configure the player's speed
-        SetJumpHeight(1); // Configure the player's jump height
+        SetJumpHeight(10); // Configure the player's jump height
     }
 
     protected override void Update()
@@ -34,6 +34,7 @@ public class PlayerMove : UnitMoveController
     public void Jump()
     {
         unitJump.Jump(Vector2.zero, 8f); // Usar la velocidad horizontal configurada
+        Debug.Log("Active el metodo Jump de PlayerMove");
     }
 
     

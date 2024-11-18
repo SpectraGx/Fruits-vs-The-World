@@ -72,14 +72,14 @@ public class UnitMoveController : MonoBehaviour
         {
             if (unitShadow != null)
             {
-                unitShadow.TurnOnShadow();
+                //unitShadow.TurnOnShadow();
             }
             rb2D.drag = 15f;
         }
         else
         {
             if (unitShadow != null)
-            {
+            {//
                 unitShadow.TurnOffShadow();
             }
             AdjustDragAndGravity();

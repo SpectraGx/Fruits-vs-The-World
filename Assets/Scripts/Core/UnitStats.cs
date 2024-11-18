@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
-    private UnitAttackController unitAttackController;    // Se usa para el aturdimiento
-    private float meterDelayTimer;                        // Temporizador antes de que el medidor pueda recargarse
-    private int currentStun;                              // Si el aturdimiento llega al máximo, la unidad queda aturdida
-    private int currentMeter;                             // Medidor actual para movimientos especiales
-    private int currentHealth;                            // Si la salud llega a 0, la unidad está KO
+    private UnitAttackController unitAttackController;
+    private float meterDelayTimer;
+    private int currentStun;
+    private int currentMeter;
+    private int currentHealth;
 
-    public byte meterDelay = 3;                           // Retraso del medidor antes de la recarga real
-    public byte statMeterGain = 2;                        // Ganancia del medidor, stat * 0.5f
-    public int maxMeter = 100;                            // Medidor para realizar movimientos especiales
-    public int maxHealth = 100;                           // Salud máxima
-    public int maxStun = 20;                              // Aturdimiento máximo
-    public bool isPlayer;                                 // Indica si esta unidad es el jugador
+    public byte meterDelay = 3;
+    public byte statMeterGain = 2;
+    public int maxMeter = 100;
+    public int maxHealth = 100;
+    public int maxStun = 20;
+    public bool isPlayer;
 
     protected virtual void Awake()
     {
@@ -83,6 +83,18 @@ public class UnitStats : MonoBehaviour
         return currentStun >= maxStun;
     }
 
+    public void Stun()
+    {
+        currentStun = maxStun;
+        unitAttackController.Stun();
+    }
+
+    public void EndStun()
+    {
+        currentStun = 0;
+        unitAttackController.EndStun();
+    }
+
     public virtual bool MeterBurn(int meterBurn)
     {
         if (currentMeter < meterBurn)
@@ -92,7 +104,6 @@ public class UnitStats : MonoBehaviour
         currentMeter -= meterBurn;
         return true;
     }
-
 
     public virtual void RestoreUnit(int healthRestore, int meterRestore)
     {

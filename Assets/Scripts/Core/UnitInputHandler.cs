@@ -38,7 +38,6 @@ public class UnitInputHandler : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log("Se presionó una tecla de movimiento");
     }
 
     public void OnJump(InputAction.CallbackContext context)
