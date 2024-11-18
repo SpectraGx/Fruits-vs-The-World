@@ -79,8 +79,8 @@ public class UnitMoveController : MonoBehaviour
         else
         {
             if (unitShadow != null)
-            {//
-                unitShadow.TurnOffShadow();
+            {
+                //unitShadow.TurnOffShadow();
             }
             AdjustDragAndGravity();
         }
@@ -177,7 +177,9 @@ public class UnitMoveController : MonoBehaviour
 
     public void SetJumpHeight(float jumpHeight)
     {
+        /*
         this.jumpHeight = jumpHeight;
         unitJump.SetJumpHeight(jumpHeight);
+        */
     }
 }

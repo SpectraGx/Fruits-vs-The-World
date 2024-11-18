@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitJump : MonoBehaviour
 {
+    /*
     private Rigidbody2D rb2D;
     private Vector3 initialGroundedPosition;
     private bool grounded;
@@ -73,4 +74,5 @@ public class UnitJump : MonoBehaviour
     {
         return grounded;
     }
+    */
 }

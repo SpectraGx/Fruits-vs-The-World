@@ -42,11 +42,13 @@ public class UnitInputHandler : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        /*
         if (context.performed)
         {
             playerMove.Jump();
             Debug.Log("Se presionó Space");
         }
+        */
     }
 
     public void OnLightAttack(InputAction.CallbackContext context)

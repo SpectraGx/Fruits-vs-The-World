@@ -33,9 +33,9 @@ public class PlayerMove : UnitMoveController
     
     public void Jump()
     {
+        /*
         unitJump.Jump(Vector2.zero, 8f); // Usar la velocidad horizontal configurada
         Debug.Log("Active el metodo Jump de PlayerMove");
-    }
-
-    
+        */
+    }    
 }
