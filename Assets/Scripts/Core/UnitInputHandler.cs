@@ -69,6 +69,7 @@ public class UnitInputHandler : MonoBehaviour
         {
             //unitSpecialAttack.ExecuteSpecialAttack();
             playerAttack.ExecuteSpecialAttack();
+            Debug.Log("Se ha hecho un ataque especial");
         }
     }
 
