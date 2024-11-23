@@ -13,11 +13,14 @@ public class EnemyStats : UnitStats
     {
         bool isStunned = base.TakeDamage(incomingAttack);
         Debug.Log($"Daño recibido: {incomingAttack.damage}. Vida: {currentHealth}");
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
             Debug.Log("El enemigo ha muerto");
         }
+
+        
         return isStunned;
     }
 }

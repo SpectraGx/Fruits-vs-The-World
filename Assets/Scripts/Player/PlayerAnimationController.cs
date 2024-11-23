@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
+    [Header("Manejo de estados")]
     private Animator animator;
     private string currentState;
 
+    [Header("Estados del jugador")]
     private static readonly string Player_Idle = "player_idle";
     private static readonly string Player_Walk = "player_walk";
     private static readonly string Player_Attack1 = "player_attack1";
@@ -58,11 +60,6 @@ public class PlayerAnimationController : MonoBehaviour
         ChangeAnimationState(Player_Attack3);
     }
 
-    public void SetIsSpecialAttack()
-    {
-        ChangeAnimationState(Player_SpecialAttack);
-    }
-
     public void ResetToIdle()
     {
         ChangeAnimationState(Player_Idle);
@@ -72,8 +69,11 @@ public class PlayerAnimationController : MonoBehaviour
     private void Update()
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
         // Verificar si la animacion es de ataque
+
         bool isAttackAnimation = currentState == Player_Attack1 || currentState == Player_Attack2 || currentState == Player_Attack3;
+
         /*
         if (isAttackAnimation && stateInfo.normalizedTime >= 1.0f)
         {
@@ -94,5 +94,10 @@ public class PlayerAnimationController : MonoBehaviour
                 ResetToIdle();
             }
         }
+    }
+
+    public void SetIsSpecialAttack()
+    {
+        ChangeAnimationState(Player_SpecialAttack);
     }
 }
