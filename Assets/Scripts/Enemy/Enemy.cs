@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake() {
         enemyStats = GetComponent<EnemyStats>();
-        enemyAttackController = GetComponent<EnemyAttackController> ();
+        enemyAttackController = GetComponent<EnemyAttackController>();
         if (enemyStats == null) 
             Debug.Log("No se ha asignado EnemyStats");
         if (enemyAttackController == null)

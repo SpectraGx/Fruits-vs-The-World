@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : UnitAttackController
@@ -7,14 +9,15 @@ public class PlayerAttack : UnitAttackController
     private AttackHitbox attackHitbox;
     [SerializeField] private GameObject hitboxAttack;
 
-
     protected override void Awake()
     {
         base.Awake();
         playerAnimationController = GetComponent<PlayerAnimationController>();
         playerCombo = GetComponent<PlayerCombo>();
         attackHitbox = GetComponentInChildren<AttackHitbox>();
+        hitboxAttack.SetActive(false);
     }
+
     protected override void Update()
     {
         base.Update();
@@ -44,20 +47,17 @@ public class PlayerAttack : UnitAttackController
         }
     }
 
-    
     public void ExecuteNormalAttack()
     {
         if (unitStats.Stunned()) return;
         ExecuteAttack(normalAttack);
-        playerAnimationController.SetAttack3();
+        playerAnimationController.SetAttack1();
     }
-    
 
     public void ExecuteSpecialAttack()
     {
         ExecuteAttack(specialAttack);
         playerAnimationController.SetIsSpecialAttack();
-
     }
 
     public void ActivateHitbox()
@@ -65,7 +65,8 @@ public class PlayerAttack : UnitAttackController
         hitboxAttack.SetActive(true);
     }
 
-    public void DesactivateHitbox(){
+    public void DeactivateHitbox()
+    {
         hitboxAttack.SetActive(false);
     }
 }

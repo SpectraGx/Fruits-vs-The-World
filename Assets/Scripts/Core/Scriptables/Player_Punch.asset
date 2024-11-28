@@ -15,5 +15,5 @@ MonoBehaviour:
   attackName: PlayerPunch
   damage: 10
   stunDuration: 1
-  knockback: {x: 0, y: 0}
-  maxComboHits: 12
+  knockback: {x: 4, y: 0}
+  maxComboHits: 5

@@ -10,16 +10,13 @@ public class UnitMoveController : MonoBehaviour
     protected UnitAnimationLayers unitAnimationLayers;
     protected Vector3 initialGroundedPosition;
     protected Vector2 velocity;
-    protected Vector2 velocityRef;
     protected bool canMove;
     protected bool grounded = true;
     protected float gravityScale;
     protected float groundCheckTimer;
     protected float horizontalSpeed;
     protected float verticalSpeed;
-    protected float jumpHeight;
 
-    [HideInInspector] public UnitJump unitJump;
     [HideInInspector] public UnitAttackController unitAttackController;
     [HideInInspector] public UnitKnockback unitKnockback;
 
@@ -34,7 +31,6 @@ public class UnitMoveController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         unitShadow = GetComponentInChildren<UnitShadow>();
-        unitJump = GetComponent<UnitJump>();
         unitKnockback = GetComponent<UnitKnockback>();
     }
 
@@ -172,13 +168,5 @@ public class UnitMoveController : MonoBehaviour
     {
         this.horizontalSpeed = horizontalSpeed;
         this.verticalSpeed = verticalSpeed;
-    }
-
-    public void SetJumpHeight(float jumpHeight)
-    {
-        /*
-        this.jumpHeight = jumpHeight;
-        unitJump.SetJumpHeight(jumpHeight);
-        */
     }
 }

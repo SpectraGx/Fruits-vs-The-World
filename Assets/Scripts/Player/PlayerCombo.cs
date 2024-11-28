@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombo : MonoBehaviour
@@ -11,12 +13,10 @@ public class PlayerCombo : MonoBehaviour
     private void Awake()
     {
         playerAnimationController = GetComponent<PlayerAnimationController>();
-        playerAnimationController.OnAnimationComplete += ResetCombo;
     }
 
     private void OnDestroy()
     {
-        playerAnimationController.OnAnimationComplete -= ResetCombo;
     }
 
     private void Update()
@@ -35,20 +35,7 @@ public class PlayerCombo : MonoBehaviour
     {
         currentComboTimer = comboTimer;
         isComboActive = true;
-
         comboStep++;
-        if (comboStep == 1)
-        {
-            playerAnimationController.SetAttack1();
-        }
-        else if (comboStep == 2)
-        {
-            playerAnimationController.SetAttack2();
-        }
-        else if (comboStep >= 3)
-        {
-            playerAnimationController.SetAttack3();
-        }
     }
 
     public void ResetCombo()
