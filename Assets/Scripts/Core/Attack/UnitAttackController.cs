@@ -41,7 +41,6 @@ public class UnitAttackController : MonoBehaviour
     {
         attacking = false;
         attackToAnimate = null;
-        unitAnimationLayers.SetMovementLayer();
     }
 
     public void TakeHit(AttackData incomingAttack)
