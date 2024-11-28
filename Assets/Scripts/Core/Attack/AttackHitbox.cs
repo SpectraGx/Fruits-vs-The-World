@@ -28,7 +28,7 @@ public class AttackHitbox : MonoBehaviour
             Debug.Log("BoxCollider2D asignado correctamente en AttackHitbox");
         }
 
-        hitboxCollider.enabled = false;
+        hitboxCollider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,13 +43,4 @@ public class AttackHitbox : MonoBehaviour
         }
     }
 
-    public void ActivateHitbox()
-    {
-        hitboxCollider.enabled = true;
-    }
-
-    public void DeactivateHitbox()
-    {
-        hitboxCollider.enabled = false;
-    }
 }

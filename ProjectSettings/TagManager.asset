@@ -45,6 +45,9 @@ TagManager:
   - name: Fondo
     uniqueID: 1889009715
     locked: 0
+  - name: Enemy
+    uniqueID: 926075591
+    locked: 0
   - name: Player
     uniqueID: 2288805219
     locked: 0

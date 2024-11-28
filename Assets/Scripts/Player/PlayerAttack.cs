@@ -5,6 +5,7 @@ public class PlayerAttack : UnitAttackController
     private PlayerAnimationController playerAnimationController;
     private PlayerCombo playerCombo;
     private AttackHitbox attackHitbox;
+    [SerializeField] private GameObject hitboxAttack;
 
 
     protected override void Awake()
@@ -25,7 +26,6 @@ public class PlayerAttack : UnitAttackController
 
         playerCombo.ExecuteCombo();
         ExecuteAttack(normalAttack);
-        attackHitbox.ActivateHitbox();
     }
 
     public void ApplyDamage(EnemyStats enemyStats)
@@ -41,22 +41,31 @@ public class PlayerAttack : UnitAttackController
         if (playerCombo.GetComboStep() == 0)
         {
             playerCombo.ResetCombo();
-            attackHitbox.DeactivateHitbox();
         }
     }
 
-    /*
+    
     public void ExecuteNormalAttack()
     {
+        if (unitStats.Stunned()) return;
         ExecuteAttack(normalAttack);
-        playerAnimationController.SetAttack1();
+        playerAnimationController.SetAttack3();
     }
-    */
+    
 
     public void ExecuteSpecialAttack()
     {
         ExecuteAttack(specialAttack);
         playerAnimationController.SetIsSpecialAttack();
 
+    }
+
+    public void ActivateHitbox()
+    {
+        hitboxAttack.SetActive(true);
+    }
+
+    public void DesactivateHitbox(){
+        hitboxAttack.SetActive(false);
     }
 }

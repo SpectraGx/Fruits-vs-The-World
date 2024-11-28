@@ -873,7 +873,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2006162077
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1204801224, guid: 40baacafe9d674648bac92165ef97191, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1171,6 +1171,7 @@ MonoBehaviour:
   unitStats: {fileID: 287627549}
   normalAttack: {fileID: 11400000, guid: b0ed825eef15ac543b7eb3affd1a3cfa, type: 2}
   specialAttack: {fileID: 0}
+  hitboxAttack: {fileID: 2126267914}
 --- !u!114 &287627553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2514,7 +2515,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2006162077
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -717321986, guid: 25c0ed2abaa498343be79e22774271e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

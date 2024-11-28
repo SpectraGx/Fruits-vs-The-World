@@ -58,7 +58,8 @@ public class UnitInputHandler : MonoBehaviour
         if (context.started)
         {
             //unitAttackController.ExecuteAttack(unitAttackController.normalAttack);
-            playerAttack.ExecuteComboAttack();
+            playerAttack.ExecuteNormalAttack();
+            playerAttack.ActivateHitbox();
         }
     }
 
