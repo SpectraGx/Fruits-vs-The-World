@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    [Header("Variables")]
+    [Header("Settings: Resolution")]
     private int width, height;
     private int newResolution;
-    private bool screnF;
+    private bool screnFull;
     private int controlsNum;
     [SerializeField] private TextMeshProUGUI resolutioonText;
     private Dictionary<GameObject, GameObject> panelFirstButtonMapping;
 
-    [Header("Paneles")]
+    [Header("Inspector: Panels")]
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject playMenu;
     [SerializeField] private GameObject optionsMenu;
@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject creditsMenu;
 
 
-    [Header("Botones Iniciales")]
+    [Header("Inspecor: FirstButton")]
     [SerializeField] private GameObject mainFirstButton;
     [SerializeField] private GameObject playFirstButton;
     [SerializeField] private GameObject optionsFirstButton;
@@ -59,8 +59,8 @@ public class Menu : MonoBehaviour
         // Cargar el modo de pantalla completa
         if (PlayerPrefs.HasKey("fullscreen"))
         {
-            screnF = PlayerPrefs.GetInt("fullscreen") == 1;
-            Screen.fullScreen = screnF;
+            screnFull = PlayerPrefs.GetInt("fullscreen") == 1;
+            Screen.fullScreen = screnFull;
         }
 
         // Cargar la resolución
@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour
         {
             width = PlayerPrefs.GetInt("resolutionWidth");
             height = PlayerPrefs.GetInt("resolutionHeight");
-            Screen.SetResolution(width, height, screnF);
+            Screen.SetResolution(width, height, screnFull);
         }
 
         // Cargar el índice de la resolución
@@ -92,14 +92,14 @@ public class Menu : MonoBehaviour
     public void FullScreen()
     {
         Screen.fullScreen = true;
-        screnF = true;
+        screnFull = true;
         PlayerPrefs.SetInt("FullScreen", 1);
     }
 
     public void Window()
     {
         Screen.fullScreen = false;
-        screnF = false;
+        screnFull = false;
         PlayerPrefs.SetInt("FullScreen", 0);
     }
 
@@ -161,16 +161,7 @@ public class Menu : MonoBehaviour
 
     public void ControlsPanel()
     {
-        /* if (controlsKeyboardMenu.activeSelf)
-        {
-            controlsKeyboardMenu.SetActive(false);
-            controlsControlsMenu.SetActive(true);
-        }
-        else if (controlsControlsMenu.activeSelf)
-        {
-            controlsControlsMenu.SetActive(false);
-            controlsKeyboardMenu.SetActive(true);
-        } */
+
         controlsNum = Mathf.Clamp(controlsNum, 0, 2);
         switch (controlsNum)
         {
@@ -212,7 +203,7 @@ public class Menu : MonoBehaviour
 
     public void ApplyResolution()
     {
-        Screen.SetResolution(width, height, screnF);
+        Screen.SetResolution(width, height, screnFull);
         PlayerPrefs.SetInt("resolutionWidth", width);
         PlayerPrefs.SetInt("resolutionHeight", height);
         PlayerPrefs.SetInt("resolution", newResolution);
