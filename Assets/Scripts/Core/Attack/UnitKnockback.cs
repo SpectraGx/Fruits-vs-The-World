@@ -5,38 +5,23 @@ using UnityEngine;
 public class UnitKnockback : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    private Vector2 velocity;
 
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    public void Knockback(Vector3 attackerPosition, Vector2 knockback, byte hitType)
+    public void ApplyKnockback(Vector2 direction, Vector2 force, float duration)
     {
-        float direction = (transform.position.x >= attackerPosition.x) ? 1 : -1;
-        if (Mathf.Sign(transform.localScale.x) != (-direction))
-        {
-            FlipSprite();
-        }
-
-        ApplyGroundedKnockback(knockback, direction, hitType);
+        Vector2 knockbackForce = direction * force;
+        rb2D.AddForce(knockbackForce, ForceMode2D.Impulse);
+        StartCoroutine(StopKnockback(duration));
     }
 
-    private void ApplyGroundedKnockback(Vector2 knockback, float direction, byte hitType)
+    private IEnumerator StopKnockback(float duration)
     {
-        if (hitType <= 2)
-        {
-            knockback.y = 0;
-        }
-        velocity = new Vector2(direction * knockback.x, Mathf.Abs(knockback.y));
-        rb2D.velocity = velocity;
-    }
-
-    private void FlipSprite()
-    {
-        Vector3 scaleTemp = transform.localScale;
-        scaleTemp.x *= -1;
-        transform.localScale = scaleTemp;
+        yield return new WaitForSeconds(duration);
+        rb2D.velocity = Vector2.zero;
+        rb2D.angularVelocity = 0f;
     }
 }

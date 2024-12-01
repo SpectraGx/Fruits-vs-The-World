@@ -48,7 +48,7 @@ public class UnitAttackController : MonoBehaviour
         if (unitStats.Stunned()) return;
         attacking = false;
 
-        unitKnockback.Knockback(transform.position, incomingAttack.knockback, 0);
+        //unitKnockback.Knockback(transform.position, incomingAttack.knockback, 0);
         unitAnimationLayers.SetHitLayer();
 
         if (unitStats.TakeDamage(incomingAttack))
