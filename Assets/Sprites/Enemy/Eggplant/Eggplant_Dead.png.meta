@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb00813a969494d4ea1c2d5c8c563fde
+guid: 6221b3eb6a5521341894689ceec010ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eggplant_Attack_0
+      name: Eggplant_Dead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 362c1e524ce1bcd499fb03b0f530fa0f
-      internalID: 1326499129
+      spriteID: 6caf06e92b408424d8570a8c93b6fc7f
+      internalID: -1237202508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_1
+      name: Eggplant_Dead_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b24d16941f574a42b78e3ad0a4e9c5d
-      internalID: -1097257138
+      spriteID: 07cf60ee612d70b4287237cf0a141e85
+      internalID: -1323214500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_2
+      name: Eggplant_Dead_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ecc16eb71751b4e9ca61c0da20b04f
-      internalID: -181246231
+      spriteID: c2d0848259c309d4aa01d9d49071acfa
+      internalID: 1398515770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_3
+      name: Eggplant_Dead_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72970cee43b527742b0ecb24d8d3c5dd
-      internalID: 1400625776
+      spriteID: acb5f706165da9c4c879d17365f6e746
+      internalID: -1027961447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_4
+      name: Eggplant_Dead_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 067789f7d86a8d540be1f28061222338
-      internalID: -997372685
+      spriteID: 20ca4dfbfb41b8f40bd1834c47968483
+      internalID: 1378811369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_5
+      name: Eggplant_Dead_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e32c7fb396020438ec681783470c6e
-      internalID: 824784751
+      spriteID: 09698448945f739468b14f53f5b4019c
+      internalID: -138300488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Attack_6
+      name: Eggplant_Dead_6
       rect:
         serializedVersion: 2
         x: 192
@@ -250,50 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac1f02c267dc7946936858e4e6c06da
-      internalID: -1713868647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eggplant_Attack_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af637e761f1034448b28ee33f2b4d53c
-      internalID: -1874804868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eggplant_Attack_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19438ae0a7beed04b9d7effe011b8183
-      internalID: -643842576
+      spriteID: 8ddeaa3d9bfb960469e29aac980b03e0
+      internalID: -1487956074
       vertices: []
       indices: 
       edges: []
@@ -309,15 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Eggplant_Attack_0: 1326499129
-      Eggplant_Attack_1: -1097257138
-      Eggplant_Attack_2: -181246231
-      Eggplant_Attack_3: 1400625776
-      Eggplant_Attack_4: -997372685
-      Eggplant_Attack_5: 824784751
-      Eggplant_Attack_6: -1713868647
-      Eggplant_Attack_7: -1874804868
-      Eggplant_Attack_8: -643842576
+      Eggplant_Dead_0: -1237202508
+      Eggplant_Dead_1: -1323214500
+      Eggplant_Dead_2: 1398515770
+      Eggplant_Dead_3: -1027961447
+      Eggplant_Dead_4: 1378811369
+      Eggplant_Dead_5: -138300488
+      Eggplant_Dead_6: -1487956074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

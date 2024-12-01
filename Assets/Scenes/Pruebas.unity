@@ -865,22 +865,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 287627543}
         m_TargetAssemblyTypeName: UnitInputHandler, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a57ff61e-7825-487a-ae65-c022bf589008
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 287627543}
-        m_TargetAssemblyTypeName: UnitInputHandler, Assembly-CSharp
         m_MethodName: OnLightAttack
         m_Mode: 0
         m_Arguments:
@@ -895,20 +879,12 @@ MonoBehaviour:
     m_ActionName: Player/NormalAttack[/Keyboard/j]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2e3e90c4-eeed-46c9-b7e4-91e5e851f7e8
-    m_ActionName: Player/StrongAttack[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 62c4c55a-6e31-425d-83fd-e95fd4132d45
     m_ActionName: Player/SpecialAttack[/Keyboard/i]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 31eb3f14-c377-4e09-86e2-0273fb0b4ce3
-    m_ActionName: Player/Block[/Keyboard/l]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 72d2809e-2595-4e7b-8a66-eb885584c891
-    m_ActionName: Player/PickUp[/Keyboard/e]
+    m_ActionId: 707687dc-2b94-4d91-9ca1-dc25ff4e3826
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -950,7 +926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f486250e6eb6d0419aeeeda3783bfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitJump: {fileID: 0}
   unitAttackController: {fileID: 0}
   unitKnockback: {fileID: 0}
   groundCheck: {fileID: 155302738}
@@ -2278,10 +2253,11 @@ GameObject:
   - component: {fileID: 1927314315}
   - component: {fileID: 1927314314}
   - component: {fileID: 1927314313}
+  - component: {fileID: 1927314316}
   - component: {fileID: 1927314312}
   - component: {fileID: 1927314311}
   m_Layer: 0
-  m_Name: Enemy_Broccoli
+  m_Name: Enemy_Chili
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,7 +2273,7 @@ Animator:
   m_GameObject: {fileID: 1927314307}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7a7045580a2fbab42ad2761eff619979, type: 2}
+  m_Controller: {fileID: 9100000, guid: c91c4bcb428fe784db8a66bd8ff8ba5d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2349,7 +2325,7 @@ SpriteRenderer:
   m_SortingLayerID: 926075591
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -717321986, guid: 25c0ed2abaa498343be79e22774271e8, type: 3}
+  m_Sprite: {fileID: 739619554, guid: 489a35a9ecfbbcf459d29012a592fc49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2492,6 +2468,18 @@ MonoBehaviour:
   maxHealth: 100
   maxStun: 20
   isPlayer: 0
+--- !u!114 &1927314316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927314307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c8413303d2ff543b4cf42154a355be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945838849
 GameObject:
   m_ObjectHideFlags: 0

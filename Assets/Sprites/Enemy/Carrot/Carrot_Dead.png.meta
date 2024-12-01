@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f56a215b13fd2940abd576bd7ee33ae
+guid: 53d816168a03f43469667b3b33729158
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eggplant_Walk_0
+      name: Carrot_Dead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a534633877cb1de40bbff0d61a22ac84
-      internalID: -580667268
+      spriteID: 915cb3f2566b8aa49b5b3b50a501669e
+      internalID: -1160094433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Walk_1
+      name: Carrot_Dead_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d599b68b242d9e7489804e95df4f3ca6
-      internalID: -1894060666
+      spriteID: 96bd85b5018b45a4597d3ef57dbda081
+      internalID: 1070266323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Walk_2
+      name: Carrot_Dead_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4657d70f81b387f43b4171fc788fd2e4
-      internalID: -305035932
+      spriteID: b61ab5d960812084ba72219151496d3d
+      internalID: 1530376691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Walk_3
+      name: Carrot_Dead_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ef3ff466701fad448325292ea1abf00
-      internalID: 1521343612
+      spriteID: a651135c9bdf75d48973370d2ac85663
+      internalID: -588420487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Walk_4
+      name: Carrot_Dead_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c1160073472eb4c81013fde189414b
-      internalID: -1609468220
+      spriteID: 6afd4fba2b3ed964f8b2da2079aa712a
+      internalID: 425664848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Walk_5
+      name: Carrot_Dead_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,8 +229,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9ece59f9eedc1143a6eb82e314deb8d
-      internalID: -953777980
+      spriteID: d06251ba9ecb6ae4bb461c522ceec573
+      internalID: 753730429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot_Dead_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49c9a37152cc4346afd48aa33dab841
+      internalID: 1073377034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot_Dead_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb107647012ee146a644c236c65ac62
+      internalID: -1525090440
       vertices: []
       indices: 
       edges: []
@@ -246,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Eggplant_Walk_0: -580667268
-      Eggplant_Walk_1: -1894060666
-      Eggplant_Walk_2: -305035932
-      Eggplant_Walk_3: 1521343612
-      Eggplant_Walk_4: -1609468220
-      Eggplant_Walk_5: -953777980
+      Carrot_Dead_0: -1160094433
+      Carrot_Dead_1: 1070266323
+      Carrot_Dead_2: 1530376691
+      Carrot_Dead_3: -588420487
+      Carrot_Dead_4: 425664848
+      Carrot_Dead_5: 753730429
+      Carrot_Dead_6: 1073377034
+      Carrot_Dead_7: -1525090440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

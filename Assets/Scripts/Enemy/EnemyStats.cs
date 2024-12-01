@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyStats : UnitStats
 {
+    private EnemyAnimationController enemyAnimationController;
     protected override void Start()
     {
         base.Start();
+        enemyAnimationController = GetComponent<EnemyAnimationController> ();
     }
 
     public override bool TakeDamage(AttackData incomingAttack)
@@ -16,11 +18,15 @@ public class EnemyStats : UnitStats
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            enemyAnimationController.Dead();
             Debug.Log("El enemigo ha muerto");
         }
 
         
         return isStunned;
+    }
+
+    public void OnDeathAnimationComplete(){
+        Destroy(gameObject);
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: deaf95ac5b49aa841854b4c03db159fa
+guid: 1762ecc25bd443046b72b71d4a9f88cc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Carrot_Dead_0
+      name: Eggplant_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4263b92ebee84914ab0129f6065ae7d5
-      internalID: -8136555
+      spriteID: 84da63608bf594d4ca5c716e206563c7
+      internalID: 411895886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Dead_1
+      name: Eggplant_Idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4fc3f4fe14c0da4ea23fd3eb52f7b57
-      internalID: 695879615
+      spriteID: b3b8e76550dba8a4fa02b75c7642d5a6
+      internalID: -2026504418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Dead_2
+      name: Eggplant_Idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d48ab746b3176341be1825507ea985c
-      internalID: -2046264296
+      spriteID: 4a8800d2990c4214aa4fe6880dfbfbc3
+      internalID: -548371145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Dead_3
+      name: Eggplant_Idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,92 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69fea4e8dc1587f488bbbc26d451701f
-      internalID: 501801982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Carrot_Dead_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3670fb4dfee514c43887f809f929d887
-      internalID: -324031664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Carrot_Dead_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 751b144181b223044b17e94185b942ca
-      internalID: -1675244065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Carrot_Dead_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6014572350f708c4c96c3e922d3a8f3c
-      internalID: 1491560933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Carrot_Dead_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a13793e36a4272440b1f5265ec117678
-      internalID: 1613136138
+      spriteID: 153792f26ffe26741864296b36ad8ee4
+      internalID: -963412235
       vertices: []
       indices: 
       edges: []
@@ -288,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Carrot_Dead_0: -8136555
-      Carrot_Dead_1: 695879615
-      Carrot_Dead_2: -2046264296
-      Carrot_Dead_3: 501801982
-      Carrot_Dead_4: -324031664
-      Carrot_Dead_5: -1675244065
-      Carrot_Dead_6: 1491560933
-      Carrot_Dead_7: 1613136138
+      Eggplant_Idle_0: 411895886
+      Eggplant_Idle_1: -2026504418
+      Eggplant_Idle_2: -548371145
+      Eggplant_Idle_3: -963412235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

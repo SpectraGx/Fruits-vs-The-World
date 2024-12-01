@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de230daf7b9c36c46bb0138d4e912026
+guid: b5a349b9d9871ba4f8660cab7a4107fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Carrot_Attack_0
+      name: Carrot_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a80c3ab1d40f64a94fae5099a2166a
-      internalID: 853976320
+      spriteID: adb37623a60883b46b573cff4307fe83
+      internalID: 142653410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_1
+      name: Carrot_Walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb551cd2bffdbf54da5347c455bd74f8
-      internalID: 75165716
+      spriteID: c32aad68cf11f7048b6e1122e5640d77
+      internalID: -1798217546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_2
+      name: Carrot_Walk_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb1a247465178384c9161b2af6d92e9d
-      internalID: 74612569
+      spriteID: ce6f0132b85af84418ee3db71765fff6
+      internalID: 1141578227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_3
+      name: Carrot_Walk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44940fb6411ff947b16462f04915b0b
-      internalID: 1605311998
+      spriteID: 317b2c92cb772b24f9908de5189237a8
+      internalID: 1023498641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_4
+      name: Carrot_Walk_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f0ba0e6402840469924da876193913
-      internalID: -39841590
+      spriteID: f0853990d9e0a5e42ae34dbc1124f5f7
+      internalID: 522961541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_5
+      name: Carrot_Walk_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76c96886579d5ca4a9ab8f41d79e3853
-      internalID: 1001278849
+      spriteID: bc6b93707098c824dbb338e64f3fd154
+      internalID: 1795816677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Carrot_Attack_6
+      name: Carrot_Walk_6
       rect:
         serializedVersion: 2
         x: 192
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab7500f33f6e8842aa2bf8c9a124f49
-      internalID: -1096770909
+      spriteID: 19f738fb2ac49764cb4f4a90db0f4b09
+      internalID: -804409026
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Carrot_Attack_0: 853976320
-      Carrot_Attack_1: 75165716
-      Carrot_Attack_2: 74612569
-      Carrot_Attack_3: 1605311998
-      Carrot_Attack_4: -39841590
-      Carrot_Attack_5: 1001278849
-      Carrot_Attack_6: -1096770909
+      Carrot_Walk_0: 142653410
+      Carrot_Walk_1: -1798217546
+      Carrot_Walk_2: 1141578227
+      Carrot_Walk_3: 1023498641
+      Carrot_Walk_4: 522961541
+      Carrot_Walk_5: 1795816677
+      Carrot_Walk_6: -804409026
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

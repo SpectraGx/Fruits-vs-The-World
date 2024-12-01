@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0c306af9bd8db14bb2fb478b70e8dd3
+guid: bddf8440645bcc84e996ddb223771e3e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eggplant_Dead_0
+      name: Eggplant_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e481262b683a4c545a207e12c8a41c09
-      internalID: 2114733085
+      spriteID: 24115f4266a426f418e28300c14e1054
+      internalID: 1701135029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Dead_1
+      name: Eggplant_Walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e591e7496ba4494287d84a97be4b153
-      internalID: -1947722177
+      spriteID: 86cd6aef3f57f40499db113c9c26edf1
+      internalID: -285085465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Dead_2
+      name: Eggplant_Walk_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5bc186c15f57bd4ca1eda21288ae97f
-      internalID: 585484915
+      spriteID: 888e64428d1377f429ff87281096a656
+      internalID: 1628259707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Dead_3
+      name: Eggplant_Walk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dbd941bb903ef14d9ba1ce891173538
-      internalID: 1201290315
+      spriteID: da72b750dc4dbf945b01a8502db436c1
+      internalID: -1264405665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Dead_4
+      name: Eggplant_Walk_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bcbeeba8c057e84daef8ba6632afbc3
-      internalID: 1237801822
+      spriteID: 574952e3801beca4ba5e260a9693affc
+      internalID: -478897441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eggplant_Dead_5
+      name: Eggplant_Walk_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,29 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d6ebb577f6cde143b824d597c38a187
-      internalID: 1644765943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Eggplant_Dead_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38f2c8d2af48fc945a41e16a4259ed3c
-      internalID: -679005624
+      spriteID: f3b652a6e79de4741808b378e10740a9
+      internalID: 1884248918
       vertices: []
       indices: 
       edges: []
@@ -267,13 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Eggplant_Dead_0: 2114733085
-      Eggplant_Dead_1: -1947722177
-      Eggplant_Dead_2: 585484915
-      Eggplant_Dead_3: 1201290315
-      Eggplant_Dead_4: 1237801822
-      Eggplant_Dead_5: 1644765943
-      Eggplant_Dead_6: -679005624
+      Eggplant_Walk_0: 1701135029
+      Eggplant_Walk_1: -285085465
+      Eggplant_Walk_2: 1628259707
+      Eggplant_Walk_3: -1264405665
+      Eggplant_Walk_4: -478897441
+      Eggplant_Walk_5: 1884248918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
