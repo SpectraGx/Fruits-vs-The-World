@@ -1196,8 +1196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 287627549}
   normalAttack: {fileID: 11400000, guid: b0ed825eef15ac543b7eb3affd1a3cfa, type: 2}
-  specialAttack: {fileID: 11400000, guid: 0c0cce03b5c21714d93e1dd6570e0ace, type: 2}
+  specialAttack: {fileID: 11400000, guid: c3e6829bf92560c47a07b2d03702fda3, type: 2}
   hitboxAttack: {fileID: 2126267914}
+  energyBar: {fileID: 0}
 --- !u!114 &287627553
 MonoBehaviour:
   m_ObjectHideFlags: 0

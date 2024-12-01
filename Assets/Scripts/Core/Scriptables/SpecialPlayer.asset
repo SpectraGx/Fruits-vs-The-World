@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98970a55635c0446906112a523954c0, type: 3}
   m_Name: SpecialPlayer
   m_EditorClassIdentifier: 
-  attackName: 
-  damage: 0
-  stunDuration: 0
-  knockbackThreshold: 0
-  knockbackForce: {x: 0, y: 0}
-  knockbackDuration: 0
-  gravityScaleKnockback: 0
-  energyCost: 0
+  attackName: BANANA POWER
+  damage: 50
+  stunDuration: 3
+  knockbackThreshold: 1
+  knockbackForce: {x: 600, y: 400}
+  knockbackDuration: 0.6
+  gravityScaleKnockback: 0.7
+  energyCost: 50
