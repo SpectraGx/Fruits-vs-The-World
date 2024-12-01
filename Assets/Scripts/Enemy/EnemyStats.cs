@@ -10,9 +10,6 @@ public class EnemyStats : UnitStats
 
     [Header("Setting: Knockback")]
     private int hitCount = 0;
-    [SerializeField] private int KnockbackThreshold = 3;
-    [SerializeField] Vector2 knockbackForce = new Vector2(4f, 4f);
-    [SerializeField] private float knockbackDuration = 0.3f;
 
     protected override void Start()
     {
@@ -27,9 +24,9 @@ public class EnemyStats : UnitStats
         Debug.Log($"Daño recibido: {incomingAttack.damage}. Vida: {currentHealth}");
 
         hitCount++;
-        if (hitCount >= KnockbackThreshold)
+        if (hitCount >= incomingAttack.knockbackThreshold)
         {
-            ApplyKnockback();
+            ApplyKnockback(incomingAttack);
             hitCount = 0;
         }
 
@@ -42,16 +39,16 @@ public class EnemyStats : UnitStats
         return isStunned;
     }
 
-    private void ApplyKnockback()
+    private void ApplyKnockback(AttackData attackData)
     {
         if (unitKnockback != null)
         {
             GameObject player = GameObject.FindWithTag("Player");
             Vector2 direction = (transform.position - player.transform.position).normalized;
 
-            Vector2 parabolaForce = new Vector2(direction.x *knockbackForce.x, knockbackForce.y);
+            Vector2 parabolaForce = new Vector2(direction.x *attackData.knockbackForce.x, attackData.knockbackForce.y);
 
-            unitKnockback.ApplyKnockback(direction, parabolaForce, knockbackDuration);
+            unitKnockback.ApplyKnockback(direction,  attackData);
         }
     }
 

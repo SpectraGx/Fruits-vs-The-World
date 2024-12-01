@@ -15,5 +15,7 @@ MonoBehaviour:
   attackName: PlayerPunch
   damage: 10
   stunDuration: 1
-  knockback: {x: 4, y: 0}
-  maxComboHits: 5
+  knockbackThreshold: 3
+  knockbackForce: {x: 300, y: 200}
+  knockbackDuration: 0.6
+  gravityScaleKnockback: 0.35

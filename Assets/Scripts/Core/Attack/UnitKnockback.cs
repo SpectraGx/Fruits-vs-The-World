@@ -6,7 +6,6 @@ public class UnitKnockback : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private float originalGravityScale;
-    [SerializeField] private float gravityScaleKnockback;
 
     private void Awake()
     {
@@ -14,13 +13,13 @@ public class UnitKnockback : MonoBehaviour
         originalGravityScale = rb2D.gravityScale;
     }
 
-    public void ApplyKnockback(Vector2 direction, Vector2 force, float duration)
+    public void ApplyKnockback(Vector2 direction, AttackData attackData)
     {
-        Vector2 knockbackForce = new Vector2(direction.x * force.x, force.y);
+        Vector2 knockbackForce = new Vector2(direction.x * attackData.knockbackForce.x, attackData.knockbackForce.y);
 
-        rb2D.gravityScale = gravityScaleKnockback;
+        rb2D.gravityScale = attackData.gravityScaleKnockback;
         rb2D.AddForce(knockbackForce, ForceMode2D.Impulse);
-        StartCoroutine(StopKnockback(duration));
+        StartCoroutine(StopKnockback(attackData.knockbackDuration));
     }
 
     private IEnumerator StopKnockback(float duration)
