@@ -62,8 +62,14 @@ public class PlayerAttack : UnitAttackController
 
     public void ExecuteSpecialAttack()
     {
-        ExecuteAttack(specialAttack);
-        playerAnimationController.SetIsSpecialAttack();
+        if (unitStats.Stunned()) return;
+
+        if (playerAnimationController.GetCurrentState() == "player_idle" && !playerMove.IsMoving())
+        {
+            ExecuteAttack(specialAttack);
+            playerAnimationController.SetIsSpecialAttack();
+            ActivateHitbox();
+        }
     }
 
     public void ActivateHitbox()

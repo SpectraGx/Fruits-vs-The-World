@@ -199,6 +199,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5566cfd7-755d-4f7f-8c48-c8e05cab034d",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "dafc9102-d804-4a1c-808f-68faed8df1fa",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
