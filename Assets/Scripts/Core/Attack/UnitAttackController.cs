@@ -7,7 +7,6 @@ public class UnitAttackController : MonoBehaviour
     private Animator animator;
     private UnitMoveController unitMoveController;
     private UnitKnockback unitKnockback;
-    private UnitAnimationLayers unitAnimationLayers;
     public UnitStats unitStats;
 
     public AttackData normalAttack;
@@ -21,7 +20,6 @@ public class UnitAttackController : MonoBehaviour
         animator = GetComponent<Animator>();
         unitMoveController = GetComponent<UnitMoveController>();
         unitKnockback = GetComponent<UnitKnockback>();
-        unitAnimationLayers = GetComponent<UnitAnimationLayers>();
         unitStats = GetComponent<UnitStats>();
     }
 
@@ -49,7 +47,6 @@ public class UnitAttackController : MonoBehaviour
         attacking = false;
 
         //unitKnockback.Knockback(transform.position, incomingAttack.knockback, 0);
-        unitAnimationLayers.SetHitLayer();
 
         if (unitStats.TakeDamage(incomingAttack))
         {
@@ -71,7 +68,6 @@ public class UnitAttackController : MonoBehaviour
 
     public void EndStun()
     {
-        unitAnimationLayers.SetMovementLayer();
     }
 
     public bool CurrentlyAttacking()

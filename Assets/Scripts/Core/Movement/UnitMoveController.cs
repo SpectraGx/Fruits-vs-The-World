@@ -7,7 +7,6 @@ public class UnitMoveController : MonoBehaviour
     protected Rigidbody2D rb2D;
     protected Animator animator;
     protected UnitShadow unitShadow;
-    protected UnitAnimationLayers unitAnimationLayers;
     protected Vector3 initialGroundedPosition;
     protected Vector2 velocity;
     protected bool canMove;
@@ -26,7 +25,6 @@ public class UnitMoveController : MonoBehaviour
 
     protected virtual void Awake()
     {
-        unitAnimationLayers = GetComponent<UnitAnimationLayers>();
         unitAttackController = GetComponent<UnitAttackController>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();

@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerCombo : MonoBehaviour
 {
+    [Header("Referencias")]
     private PlayerAnimationController playerAnimationController;
-    private int comboStep = 0;
-    private float comboTimer = 0.5f; // Tiempo para completar el combo
+
+    [Header("Setting: Combo")]
+    private int comboCount = 0;
+    private int bestComboCount = 0;
+    [SerializeField] private float comboResetTimer = 1.5f;
     private float currentComboTimer;
     private bool isComboActive = false;
+
+    [Header("Inspector: UI")]
+    [SerializeField] private TextMeshProUGUI comboText;
 
     private void Awake()
     {
         playerAnimationController = GetComponent<PlayerAnimationController>();
-    }
-
-    private void OnDestroy()
-    {
+        comboText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -31,21 +36,43 @@ public class PlayerCombo : MonoBehaviour
         }
     }
 
-    public void ExecuteCombo()
+    public void IncrementCombo()
     {
-        currentComboTimer = comboTimer;
+        comboCount++;
+        currentComboTimer = comboResetTimer;
         isComboActive = true;
-        comboStep++;
+
+        if (comboCount > bestComboCount)
+        {
+            bestComboCount = comboCount;
+        }
+
+        if (comboCount >= 2)
+        {
+            comboText.gameObject.SetActive(true);
+            comboText.text = comboCount + " COMBO";
+        }
+
+        Debug.Log($"El combo es de: {comboCount}");
     }
 
     public void ResetCombo()
     {
-        comboStep = 0;
+        comboCount = 0;
         isComboActive = false;
+
+        comboText.gameObject.SetActive(false);
+
+        Debug.Log("Combo Reiniciado");
     }
 
-    public int GetComboStep()
+    public int GetComboCount()
     {
-        return comboStep;
+        return comboCount;
+    }
+
+    public int GetBestComboCount()
+    {
+        return bestComboCount;
     }
 }

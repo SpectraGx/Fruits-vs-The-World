@@ -25,27 +25,12 @@ public class PlayerAttack : UnitAttackController
         base.Update();
     }
 
-    public void ExecuteComboAttack()
-    {
-        if (unitStats.Stunned()) return;
-
-        playerCombo.ExecuteCombo();
-        ExecuteAttack(normalAttack);
-    }
-
     public void ApplyDamage(EnemyStats enemyStats)
     {
         if (enemyStats != null)
         {
             enemyStats.TakeDamage(normalAttack);
-        }
-    }
-
-    public void OnAnimationComplete()
-    {
-        if (playerCombo.GetComboStep() == 0)
-        {
-            playerCombo.ResetCombo();
+            playerCombo.IncrementCombo();
         }
     }
 
