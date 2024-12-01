@@ -16,12 +16,14 @@ public class PlayerCombo : MonoBehaviour
     private bool isComboActive = false;
 
     [Header("Inspector: UI")]
+    [SerializeField] private EnergyBar energyBar;
     [SerializeField] private TextMeshProUGUI comboText;
 
     private void Awake()
     {
         playerAnimationController = GetComponent<PlayerAnimationController>();
         comboText.gameObject.SetActive(false);
+        energyBar = FindObjectOfType<EnergyBar>();
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class PlayerCombo : MonoBehaviour
     public void IncrementCombo()
     {
         comboCount++;
+        energyBar.IncrementEnergy(1);
         currentComboTimer = comboResetTimer;
         isComboActive = true;
 
