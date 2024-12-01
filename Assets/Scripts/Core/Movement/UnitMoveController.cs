@@ -18,6 +18,7 @@ public class UnitMoveController : MonoBehaviour
 
     [HideInInspector] public UnitAttackController unitAttackController;
     [HideInInspector] public UnitKnockback unitKnockback;
+    [HideInInspector] public UnitStats unitStats;
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
@@ -30,6 +31,7 @@ public class UnitMoveController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         unitShadow = GetComponentInChildren<UnitShadow>();
         unitKnockback = GetComponent<UnitKnockback>();
+        unitStats = GetComponent<UnitStats>();
     }
 
     protected virtual void Start()
@@ -37,7 +39,7 @@ public class UnitMoveController : MonoBehaviour
         grounded = true;
         initialGroundedPosition = transform.position;
         rb2D.drag = 15f;
-        rb2D.gravityScale = 0; 
+        rb2D.gravityScale = 0;
     }
 
     protected virtual void Update()
@@ -62,6 +64,13 @@ public class UnitMoveController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (unitStats.Stunned())
+        {
+
+            rb2D.velocity = Vector3.zero;
+            return;
+
+        }
         if (grounded)
         {
             if (unitShadow != null)
@@ -87,7 +96,7 @@ public class UnitMoveController : MonoBehaviour
 
     public void Move(Vector2 directionalInput, float horizontalSpeed, float verticalSpeed)
     {
-        if (!canMove)
+        if (!canMove || unitStats.Stunned())
         {
             return;
         }

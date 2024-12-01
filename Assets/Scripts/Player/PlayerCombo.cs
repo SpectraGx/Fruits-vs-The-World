@@ -56,6 +56,19 @@ public class PlayerCombo : MonoBehaviour
             comboText.text = comboCount + " COMBO";
         }
 
+        if (comboCount >= 1)
+        {
+            GameObject enemy = GameObject.FindWithTag("Enemy");
+            if (enemy != null)
+            {
+                EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+                if (enemyStats != null)
+                {
+                    enemyStats.Stun(1.5f);
+                }
+            }
+        }
+
         Debug.Log($"El combo es de: {comboCount}");
     }
 

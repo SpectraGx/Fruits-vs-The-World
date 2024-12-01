@@ -56,7 +56,6 @@ public class UnitAttackController : MonoBehaviour
 
     public void Stun(float duration)
     {
-        animator.SetTrigger("Stunned");
         StartCoroutine(StunCoroutine(duration));
     }
 

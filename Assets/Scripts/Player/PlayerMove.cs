@@ -18,17 +18,22 @@ public class PlayerMove : UnitMoveController
     {
         base.Start();
         CanMove(true);
-        SetSpeed(1, 0.5f); 
+        SetSpeed(1, 0.5f);
     }
 
     protected override void Update()
     {
         base.Update();
+        if (unitStats.Stunned())
+        {
+            return;
+        }
         bool isMoving = rb2D.velocity.magnitude > 0.1f;
         playerAnimationController.SetIsMoving(isMoving);
     }
 
-    public bool IsMoving(){
+    public bool IsMoving()
+    {
         return rb2D.velocity.magnitude > 0.1f;
     }
 }
