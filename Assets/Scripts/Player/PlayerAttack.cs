@@ -7,6 +7,7 @@ public class PlayerAttack : UnitAttackController
     private PlayerAnimationController playerAnimationController;
     private PlayerCombo playerCombo;
     private AttackHitbox attackHitbox;
+    private PlayerMove playerMove;
     [SerializeField] private GameObject hitboxAttack;
 
     protected override void Awake()
@@ -14,6 +15,7 @@ public class PlayerAttack : UnitAttackController
         base.Awake();
         playerAnimationController = GetComponent<PlayerAnimationController>();
         playerCombo = GetComponent<PlayerCombo>();
+        playerMove = GetComponent<PlayerMove>();
         attackHitbox = GetComponentInChildren<AttackHitbox>();
         hitboxAttack.SetActive(false);
     }
@@ -50,8 +52,12 @@ public class PlayerAttack : UnitAttackController
     public void ExecuteNormalAttack()
     {
         if (unitStats.Stunned()) return;
-        ExecuteAttack(normalAttack);
-        playerAnimationController.SetAttack1();
+        if (playerAnimationController.GetCurrentState() == "player_idle" && !playerMove.IsMoving())
+        {
+            ExecuteAttack(normalAttack);
+            playerAnimationController.SetAttack1();
+            ActivateHitbox();
+        }
     }
 
     public void ExecuteSpecialAttack()
@@ -67,6 +73,9 @@ public class PlayerAttack : UnitAttackController
 
     public void DeactivateHitbox()
     {
-        hitboxAttack.SetActive(false);
+        if (playerAnimationController.GetCurrentState() == "player_idle")
+        {
+            hitboxAttack.SetActive(false);
+        }
     }
 }

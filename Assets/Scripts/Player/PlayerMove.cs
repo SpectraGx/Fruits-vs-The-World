@@ -27,4 +27,8 @@ public class PlayerMove : UnitMoveController
         bool isMoving = rb2D.velocity.magnitude > 0.1f;
         playerAnimationController.SetIsMoving(isMoving);
     }
+
+    public bool IsMoving(){
+        return rb2D.velocity.magnitude > 0.1f;
+    }
 }

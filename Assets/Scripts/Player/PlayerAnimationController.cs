@@ -24,6 +24,8 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (currentState == newState) return;
 
+        Debug.Log($"Cambiando de {currentState} is {newState}");
+
         animator.Play(newState);
         currentState = newState;
     }
@@ -56,14 +58,20 @@ public class PlayerAnimationController : MonoBehaviour
 
         bool isAttackAnimation = currentState == Player_Attack1;
 
+        /*
         if (isAttackAnimation && stateInfo.normalizedTime >= 1f)
         {
             ResetToIdle();
         }
+        */
     }
 
     public void SetIsSpecialAttack()
     {
         ChangeAnimationState(Player_SpecialAttack);
+    }
+
+    public string GetCurrentState(){
+        return currentState;
     }
 }

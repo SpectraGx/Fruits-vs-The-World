@@ -12,7 +12,6 @@ public class VolumeSettings : MonoBehaviour
 
     private void Start()
     {
-
         if (PlayerPrefs.HasKey("musicVolumen"))
         {
             LoadVolumen();
@@ -22,8 +21,6 @@ public class VolumeSettings : MonoBehaviour
             SetMusicVolumen();
             SetSfxVolumen();
         }
-
-
     }
 
     public void SetMusicVolumen()
@@ -42,7 +39,6 @@ public class VolumeSettings : MonoBehaviour
 
     public void SetSfxVolumen()
     {
-
         float volumen = mySfxSlider.value;
         if (volumen == 0)
         {
@@ -61,6 +57,5 @@ public class VolumeSettings : MonoBehaviour
         SetMusicVolumen();
         mySfxSlider.value = PlayerPrefs.GetFloat("sonidoVolumen");
         SetSfxVolumen();
-
     }
 }
