@@ -12,6 +12,7 @@ public class UnitInputHandler : MonoBehaviour
 
     private PlayerMove playerMove;
     private PlayerAttack playerAttack;
+    [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
@@ -47,6 +48,14 @@ public class UnitInputHandler : MonoBehaviour
         {
             playerAttack.ExecuteSpecialAttack();
             Debug.Log("Se ha hecho un ataque especial");
+        }
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            gameManager.Pause();
         }
     }
 }
