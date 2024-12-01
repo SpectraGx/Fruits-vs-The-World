@@ -9,6 +9,7 @@ public class PlayerAttack : UnitAttackController
     private AttackHitbox attackHitbox;
     private PlayerMove playerMove;
     [SerializeField] private GameObject hitboxAttack;
+    [SerializeField] private EnergyBar energyBar;
 
     protected override void Awake()
     {
@@ -18,6 +19,8 @@ public class PlayerAttack : UnitAttackController
         playerMove = GetComponent<PlayerMove>();
         attackHitbox = GetComponentInChildren<AttackHitbox>();
         hitboxAttack.SetActive(false);
+
+        energyBar = FindObjectOfType<EnergyBar>();
     }
 
     protected override void Update()
@@ -30,7 +33,17 @@ public class PlayerAttack : UnitAttackController
         if (enemyStats != null)
         {
             enemyStats.TakeDamage(attackToAnimate);
-            playerCombo.IncrementCombo();
+
+            if (attackToAnimate is SpecialAttackData)
+            {
+                SpecialAttackData specialAttackData = (SpecialAttackData)attackToAnimate;
+                energyBar.DecrementEnergy(specialAttackData.energyCost);
+            }
+            else
+            {
+                playerCombo.IncrementCombo();
+                energyBar.IncrementEnergy(5);
+            }
         }
     }
 
@@ -49,11 +62,17 @@ public class PlayerAttack : UnitAttackController
     {
         if (unitStats.Stunned()) return;
 
-        if (playerAnimationController.GetCurrentState() == "player_idle" && !playerMove.IsMoving())
+        if (specialAttack is SpecialAttackData specialAttackData && energyBar.GetCurrentEnergy() >= specialAttackData.energyCost)
         {
-            ExecuteAttack(specialAttack);
-            playerAnimationController.SetIsSpecialAttack();
-            ActivateHitbox();
+            if (playerAnimationController.GetCurrentState() == "player_idle" && !playerMove.IsMoving())
+            {
+                ExecuteAttack(specialAttack);
+                playerAnimationController.SetIsSpecialAttack();
+                ActivateHitbox();
+            }
+        }
+        else {
+            Debug.Log("No hay suficiente energia para un ataque especial");
         }
     }
 

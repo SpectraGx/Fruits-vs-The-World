@@ -28,6 +28,14 @@ public class EnergyBar : MonoBehaviour
         UpdateEnergyBar();
     }
 
+    public void DecrementEnergy(int amount){
+        currentEnergy -= amount;
+        if (currentEnergy < 0){
+            currentEnergy = 0;
+        }
+        UpdateEnergyBar();
+    }
+
     public void ResetEnergy()
     {
         currentEnergy = 0;

@@ -41,7 +41,7 @@ public class PlayerCombo : MonoBehaviour
     public void IncrementCombo()
     {
         comboCount++;
-        energyBar.IncrementEnergy(1);
+        //energyBar.IncrementEnergy(1);
         currentComboTimer = comboResetTimer;
         isComboActive = true;
 
