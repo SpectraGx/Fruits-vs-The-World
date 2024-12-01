@@ -29,7 +29,7 @@ public class PlayerAttack : UnitAttackController
     {
         if (enemyStats != null)
         {
-            enemyStats.TakeDamage(normalAttack);
+            enemyStats.TakeDamage(attackToAnimate);
             playerCombo.IncrementCombo();
         }
     }
@@ -67,6 +67,7 @@ public class PlayerAttack : UnitAttackController
         if (playerAnimationController.GetCurrentState() == "player_idle")
         {
             hitboxAttack.SetActive(false);
+            EndAttack();
         }
     }
 }

@@ -988,7 +988,19 @@ MonoBehaviour:
     m_ActionId: 2b963ec7-e613-4068-8d6b-9ed2cd064b2b
     m_ActionName: Player/NormalAttack[/Keyboard/j]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 287627543}
+        m_TargetAssemblyTypeName: UnitInputHandler, Assembly-CSharp
+        m_MethodName: OnSpecialAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 62c4c55a-6e31-425d-83fd-e95fd4132d45
     m_ActionName: Player/SpecialAttack[/Keyboard/i]
   - m_PersistentCalls:
@@ -1199,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboResetTimer: 2
-  energyBar: {fileID: 0}
+  energyBar: {fileID: 128872973}
   comboText: {fileID: 1629900168}
 --- !u!1 &314701543
 GameObject:
