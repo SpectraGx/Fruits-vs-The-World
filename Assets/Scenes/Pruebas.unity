@@ -4008,6 +4008,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   detectionRadius: 3
+  minDistanceToPlayer: 0.5
 --- !u!1 &1929072571
 GameObject:
   m_ObjectHideFlags: 0

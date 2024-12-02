@@ -6,6 +6,7 @@ public class EnemyMovement : UnitMoveController
 {
     [Header("Settings: Move & Radius")]
     [SerializeField] private float detectionRadius = 5f;
+    [SerializeField] private float minDistanceToPlayer = 1f;
     private Transform playerTransform;
     private EnemyAnimationController enemyAnimation;
     private bool isKnockedBack = false;
@@ -37,8 +38,19 @@ public class EnemyMovement : UnitMoveController
         if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= detectionRadius)
         {
             Vector3 direction = (playerTransform.position - transform.position).normalized;
-            Move(direction, horizontalSpeed, verticalSpeed);
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+            if (distanceToPlayer > minDistanceToPlayer)
+            {
+                Move(direction, horizontalSpeed, verticalSpeed);
+            }
+            else
+            {
+                Move(Vector3.zero, horizontalSpeed, verticalSpeed);
+            }
+
             enemyAnimation.SetIsMoving(true);
+
         }
         else
         {
@@ -63,5 +75,5 @@ public class EnemyMovement : UnitMoveController
         canMove = true;  // Asegurarse de que canMove se restaure correctamente
         OnEnable();
     }
-    
+
 }
