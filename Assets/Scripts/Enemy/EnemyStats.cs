@@ -9,6 +9,7 @@ public class EnemyStats : UnitStats
     private EnemyAnimationController enemyAnimationController;
     private UnitKnockback unitKnockback;
     private Rigidbody2D rb2D;
+    private bool isDead = false;
 
     [Header("Setting: Knockback")]
     private int hitCount = 0;
@@ -24,6 +25,8 @@ public class EnemyStats : UnitStats
 
     public override bool TakeDamage(AttackData incomingAttack)
     {
+        if (isDead) return false;
+
         bool isStunned = base.TakeDamage(incomingAttack);
 
         if (stunCoroutine != null)
@@ -42,17 +45,34 @@ public class EnemyStats : UnitStats
 
         if (currentHealth <= 0)
         {
-            enemyAnimationController.Dead();
+            Dead();
         }
 
         return isStunned;
+    }
+
+    private void Dead()
+    {
+        isDead = true;
+        DisableComponents();
+        enemyAnimationController.Dead();
+    }
+
+    private void DisableComponents()
+    {
+        GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        rb2D.velocity = Vector2.zero;
     }
 
     private IEnumerator ResetStunAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         currentStun = 0;
-        enemyAnimationController.ResetToIdle();
+        if (!isDead)
+        {
+            enemyAnimationController.ResetToIdle();
+        }
         stunCoroutine = null;
     }
 

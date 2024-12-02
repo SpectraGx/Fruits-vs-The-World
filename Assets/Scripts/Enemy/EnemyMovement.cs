@@ -63,4 +63,5 @@ public class EnemyMovement : UnitMoveController
         canMove = true;  // Asegurarse de que canMove se restaure correctamente
         OnEnable();
     }
+    
 }
