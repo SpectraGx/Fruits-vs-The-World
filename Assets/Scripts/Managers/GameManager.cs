@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         GameOver,
     }
 
-    
+
     private State state;
     /*
     private float waitingToStartTimer = 1f;
@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private bool isGamePaused = false;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiGame;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject loserPanel;
 
     /*
     [SerializeField] private AudioSource musicSource;
@@ -130,6 +132,17 @@ public class GameManager : MonoBehaviour
             //musicSource.Play();
             OnGameUnpaused?.Invoke(this, EventArgs.Empty);
         }
+    }
 
+    public void Win()
+    {
+        winPanel.SetActive(true);
+        Time.timeScale = 0.000001f;
+    }
+
+    public void GameOver()
+    {
+        loserPanel.SetActive(true);
+        Time.timeScale = 0.000001f;
     }
 }

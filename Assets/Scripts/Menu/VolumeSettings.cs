@@ -9,6 +9,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider myMusicSlider;
     [SerializeField] private Slider mySfxSlider;
+    private bool muteMusic, muteSFX;
 
     private void Start()
     {
@@ -49,6 +50,18 @@ public class VolumeSettings : MonoBehaviour
             myMixer.SetFloat("Sonido", Mathf.Log10(volumen) * 20);
         }
         PlayerPrefs.SetFloat("sonidoVolumen", volumen);
+    }
+
+    public void MuteSfx()
+    {
+        float volumen = mySfxSlider.value;
+        volumen = 0;
+    }
+
+    public void MuteMusic()
+    {
+        float volumen = myMusicSlider.value;
+        volumen = 0;
     }
 
     private void LoadVolumen()
