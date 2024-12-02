@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 128872970}
   - component: {fileID: 128872969}
   - component: {fileID: 128872973}
+  - component: {fileID: 128872974}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -425,6 +426,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energySlider: {fileID: 867856503}
+--- !u!114 &128872974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128872968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e185babcaf260554b95fbb1da6062330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1499640932}
 --- !u!1 &155302737
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,10 +842,10 @@ GameObject:
   - component: {fileID: 287627551}
   - component: {fileID: 287627550}
   - component: {fileID: 287627553}
-  - component: {fileID: 287627549}
   - component: {fileID: 287627544}
   - component: {fileID: 287627543}
   - component: {fileID: 287627542}
+  - component: {fileID: 287627554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1063,6 +1077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitAttackController: {fileID: 0}
   unitKnockback: {fileID: 0}
+  unitStats: {fileID: 0}
   groundCheck: {fileID: 155302738}
   groundCheckRadius: 1
   groundLayer:
@@ -1140,24 +1155,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &287627549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287627538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f88105e6cbbc184fb3be302e9f84613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meterDelay: 3
-  statMeterGain: 2
-  maxMeter: 100
-  maxHealth: 100
-  maxStun: 20
-  isPlayer: 1
 --- !u!114 &287627550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15da88b1cc4f2d74aa7e4f94622cf8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats: {fileID: 287627549}
+  unitStats: {fileID: 0}
   normalAttack: {fileID: 11400000, guid: b0ed825eef15ac543b7eb3affd1a3cfa, type: 2}
   specialAttack: {fileID: 11400000, guid: c3e6829bf92560c47a07b2d03702fda3, type: 2}
   hitboxAttack: {fileID: 2126267914}
@@ -1214,6 +1211,26 @@ MonoBehaviour:
   comboResetTimer: 2
   energyBar: {fileID: 128872973}
   comboText: {fileID: 1629900168}
+--- !u!114 &287627554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287627538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bc89ab9e7d6aa4a9b0ccb7b8a091bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  meterDelay: 3
+  statMeterGain: 2
+  maxMeter: 100
+  maxHealth: 100
+  maxStun: 20
+  isPlayer: 1
+  healthBar: {fileID: 128872974}
 --- !u!1 &314701543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,6 +3955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78540769bf1d1447a93d8a93cf994e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
   meterDelay: 3
   statMeterGain: 2
   maxMeter: 100

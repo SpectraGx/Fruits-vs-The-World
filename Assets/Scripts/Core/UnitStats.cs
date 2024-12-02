@@ -8,7 +8,7 @@ public class UnitStats : MonoBehaviour
     private float meterDelayTimer;
     private int currentStun;
     private int currentMeter;
-    protected int currentHealth;
+    [SerializeField] protected int currentHealth;
 
     public byte meterDelay = 3;
     public byte statMeterGain = 2;
