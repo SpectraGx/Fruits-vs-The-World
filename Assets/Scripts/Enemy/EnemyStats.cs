@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -46,10 +47,26 @@ public class EnemyStats : UnitStats
             GameObject player = GameObject.FindWithTag("Player");
             Vector2 direction = (transform.position - player.transform.position).normalized;
 
-            Vector2 parabolaForce = new Vector2(direction.x *attackData.knockbackForce.x, attackData.knockbackForce.y);
+            Vector2 parabolaForce = new Vector2(direction.x * attackData.knockbackForce.x, attackData.knockbackForce.y);
 
-            unitKnockback.ApplyKnockback(direction,  attackData);
+            unitKnockback.ApplyKnockback(direction, attackData);
+
+            EnemyMovement enemyMovement = GetComponent<EnemyMovement>();
+            if (enemyMovement != null)
+            {
+                StartCoroutine(ApplyKnockbackCoroutine(enemyMovement, attackData.knockbackDuration));
+            }
+
+            //GetComponent<EnemyMovement>().AppplyKnockback(parabolaForce,attackData.knockbackDuration);
         }
+    }
+
+    private IEnumerator ApplyKnockbackCoroutine(EnemyMovement enemyMovement, float knockbackDuration)
+    {
+        enemyMovement.enabled = false;
+        yield return new WaitForSeconds(knockbackDuration);
+        enemyMovement.enabled = true;
+        enemyMovement.OnEnable();
     }
 
     public void OnDeathAnimationComplete()

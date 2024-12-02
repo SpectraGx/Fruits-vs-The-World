@@ -24,7 +24,7 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (currentState == newState) return;
 
-        Debug.Log($"Cambiando de {currentState} is {newState}");
+        //Debug.Log($"Cambiando de {currentState} is {newState}");
 
         animator.Play(newState);
         currentState = newState;

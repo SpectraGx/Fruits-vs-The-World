@@ -38,7 +38,7 @@ public class EnemyAnimationController : MonoBehaviour
         }
         else
         {
-            ChangeAnimationState (Enemy_Idle);
+            ChangeAnimationState(Enemy_Idle);
         }
     }
 
@@ -49,10 +49,11 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void ResetToIdle()
     {
-        ChangeAnimationState (Enemy_Idle);
+        ChangeAnimationState(Enemy_Idle);
     }
 
-    public void Dead(){
+    public void Dead()
+    {
         ChangeAnimationState(Enemy_Dead);
     }
 
@@ -61,6 +62,16 @@ public class EnemyAnimationController : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
         bool isAttackAnimation = currentState == Enemy_Attack;
+        bool isMoving = GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f;
+
+        if (isMoving && currentState != Enemy_Walk)
+        {
+            ChangeAnimationState(Enemy_Walk);
+        }
+        else if (!isMoving && currentState == Enemy_Idle)
+        {
+            ChangeAnimationState(Enemy_Idle);
+        }
 
         /*
         if (isAttackAnimation && stateInfo.normalizedTime >= 1f)
@@ -70,7 +81,8 @@ public class EnemyAnimationController : MonoBehaviour
         */
     }
 
-    public string GetCurrentState(){
+    public string GetCurrentState()
+    {
         return currentState;
     }
 }

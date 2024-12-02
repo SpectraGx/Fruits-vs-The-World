@@ -62,7 +62,7 @@ public class UnitMoveController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    private void HandleMovement()
+    protected virtual void HandleMovement()
     {
         if (unitStats.Stunned())
         {
