@@ -3741,13 +3741,14 @@ GameObject:
   - component: {fileID: 1927314310}
   - component: {fileID: 1927314309}
   - component: {fileID: 1927314308}
+  - component: {fileID: 1927314312}
+  - component: {fileID: 1927314311}
   - component: {fileID: 1927314316}
   - component: {fileID: 1927314313}
   - component: {fileID: 1927314315}
   - component: {fileID: 1927314314}
+  - component: {fileID: 1927314318}
   - component: {fileID: 1927314317}
-  - component: {fileID: 1927314312}
-  - component: {fileID: 1927314311}
   m_Layer: 0
   m_Name: Enemy_Chili
   m_TagString: Enemy
@@ -3838,7 +3839,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.27, y: -1.598, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 22349114}
@@ -3986,6 +3987,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d0e61249930d84a880ac6c580fbf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1927314318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927314307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e87edfbe4c38047ac9fb0bc09b266a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitAttackController: {fileID: 0}
+  unitKnockback: {fileID: 0}
+  unitStats: {fileID: 0}
+  groundCheck: {fileID: 22349114}
+  groundCheckRadius: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectionRadius: 3
 --- !u!1 &1929072571
 GameObject:
   m_ObjectHideFlags: 0

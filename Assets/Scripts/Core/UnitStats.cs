@@ -6,7 +6,7 @@ public class UnitStats : MonoBehaviour
 {
     private UnitAttackController unitAttackController;
     private float meterDelayTimer;
-    private int currentStun;
+    protected int currentStun;
     private int currentMeter;
     [SerializeField] protected int currentHealth;
 

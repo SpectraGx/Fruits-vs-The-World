@@ -8,7 +8,7 @@ public class EnemyMovement : UnitMoveController
     [SerializeField] private float detectionRadius = 5f;
     private Transform playerTransform;
     private EnemyAnimationController enemyAnimation;
-    private bool isKnockback = false;
+    private bool isKnockedBack = false;
 
     protected override void Start()
     {
@@ -18,16 +18,18 @@ public class EnemyMovement : UnitMoveController
 
         SetSpeed(1f, 1f);
     }
-    public void OnEnable() {
+
+    public void OnEnable()
+    {
         canMove = true;
-        isKnockback = false;
+        isKnockedBack = false;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (isKnockback)
+        if (isKnockedBack)
         {
             return;
         }
@@ -35,48 +37,30 @@ public class EnemyMovement : UnitMoveController
         if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= detectionRadius)
         {
             Vector3 direction = (playerTransform.position - transform.position).normalized;
-            Debug.Log("El jugador esta en el radio");
-            canMove = true;
             Move(direction, horizontalSpeed, verticalSpeed);
+            enemyAnimation.SetIsMoving(true);
         }
         else
         {
             StopMoving();
             canMove = false;
-            Debug.Log("El jugador NO esta en el radio");
+            enemyAnimation.SetIsMoving(false);
         }
     }
 
-    protected override void HandleMovement()
+    public void ApplyKnockback(Vector2 force, float duration)
     {
-        base.HandleMovement();
-
-        if (velocity.x > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-        if (!canMove)
-        {
-            enemyAnimation.ResetToIdle();
-        }
-    }
-
-/*
-    public void AppplyKnockback (Vector2 force, float duration){
-        isKnockback = true;
+        isKnockedBack = true;
         rb2D.AddForce(force, ForceMode2D.Impulse);
         StartCoroutine(EndKnockback(duration));
     }
 
-    private IEnumerator EndKnockback(float duration){
+    private IEnumerator EndKnockback(float duration)
+    {
         yield return new WaitForSeconds(duration);
-        isKnockback = false;
+        isKnockedBack = false;
         rb2D.velocity = Vector2.zero;
+        canMove = true;  // Asegurarse de que canMove se restaure correctamente
+        OnEnable();
     }
-    */
 }
