@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e94b68be7a155a845a6051fbc1fb6d4b, type: 2}
+  m_Motion: {fileID: 7400000, guid: bfb3469b128cb16468fc9febae416865, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chili
+  m_Name: Eggplant
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -90,7 +90,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a7d0350c2f94fc544a610a4d030663b3, type: 2}
+  m_Motion: {fileID: 7400000, guid: bdbc8413a83e23d4f8fbbe1eb2337954, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -116,7 +116,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9132dd8bc6c45d14fb997ef3fe53824d, type: 2}
+  m_Motion: {fileID: 7400000, guid: e9f15778ff09d8948ae6cc31d6cce982, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -143,7 +143,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6861bb5e01b86474980d9ac6c365660e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 889642f9ddd9d1441a0b422e5f399112, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

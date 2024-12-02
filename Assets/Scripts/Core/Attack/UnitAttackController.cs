@@ -13,7 +13,7 @@ public class UnitAttackController : MonoBehaviour
     public AttackData specialAttack;
 
     protected AttackData attackToAnimate;
-    private bool attacking;
+    protected bool attacking;
 
     protected virtual void Awake()
     {

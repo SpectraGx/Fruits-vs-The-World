@@ -24,17 +24,21 @@ public class EnemyAnimationController : MonoBehaviour
     {
         if (currentState == newState) return;
 
-        Debug.Log($"Cambiando de {currentState} is {newState}");
+        if (currentState == "enemy_attack" && newState != "enemy_dead") return;
+
+        Debug.Log($"Cambiando de {currentState} a {newState}");
 
         animator.Play(newState);
         currentState = newState;
     }
+
 
     public void SetIsMoving(bool isMoving)
     {
         if (isMoving)
         {
             ChangeAnimationState(Enemy_Walk);
+            Debug.Log("Walk");
         }
         else
         {
@@ -50,6 +54,11 @@ public class EnemyAnimationController : MonoBehaviour
     public void ResetToIdle()
     {
         ChangeAnimationState(Enemy_Idle);
+    }
+
+    public void Walk()
+    {
+        ChangeAnimationState(Enemy_Walk);
     }
 
     public void Dead()

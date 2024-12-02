@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyStats : UnitStats
@@ -71,7 +69,7 @@ public class EnemyStats : UnitStats
         currentStun = 0;
         if (!isDead)
         {
-            enemyAnimationController.ResetToIdle();
+            //enemyAnimationController.ResetToIdle();
         }
         stunCoroutine = null;
     }
@@ -110,4 +108,3 @@ public class EnemyStats : UnitStats
         Destroy(gameObject);
     }
 }
-
